@@ -5,6 +5,8 @@ import java.io.Serializable;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 @Entity
 public class User implements Serializable{
@@ -15,11 +17,22 @@ public class User implements Serializable{
 	private String firstName;
 	private String lastName;
 	private String mailAddress;
-	private boolean gender;
+	private String phoneNumber;
+	@ManyToOne
+	private Address address;
 	
 	public User() {
 		super();
 	}
+	
+	public Address getAddress() {
+		return address;
+	}
+
+	public void setAddress(Address address) {
+		this.address = address;
+	}
+
 	public long getId() {
 		return id;
 	}
@@ -50,12 +63,11 @@ public class User implements Serializable{
 	public void setMailAddress(String mailAddress) {
 		this.mailAddress = mailAddress;
 	}
-	public boolean isGender() {
-		return gender;
-	}
-	public void setGender(boolean gender) {
-		this.gender = gender;
-	}
 	
-	
+	public String getPhoneNumber() {
+		return phoneNumber;
+	}
+	public void setPhoneNumber(String phoneNumber) {
+		this.phoneNumber = phoneNumber;
+	}
 }
