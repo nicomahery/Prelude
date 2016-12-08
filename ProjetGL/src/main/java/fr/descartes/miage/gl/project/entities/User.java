@@ -33,6 +33,16 @@ public class User implements Serializable{
 	@ManyToOne
 	private Address address;
 	
+	//private boolean gender;
+	/*
+	public boolean isGender() {
+		return gender;
+	}
+
+	public void setGender(boolean gender) {
+		this.gender = gender;
+	}*/
+
 	public User() {
 		super();
 	}
