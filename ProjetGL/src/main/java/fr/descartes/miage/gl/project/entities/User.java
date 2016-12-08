@@ -7,17 +7,29 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 @Entity
 public class User implements Serializable{
 	
 	@Id @GeneratedValue
 	private long id;
+	@NotNull
+	@Size(min=2,max=25)
 	private String username;
+	@NotNull
+	@Size(min=4,max=15)
+	private String password;
+	@NotNull
 	private String firstName;
+	@NotNull
 	private String lastName;
+	@NotNull
 	private String mailAddress;
+	@NotNull
 	private String phoneNumber;
+	@NotNull
 	@ManyToOne
 	private Address address;
 	
@@ -69,5 +81,13 @@ public class User implements Serializable{
 	}
 	public void setPhoneNumber(String phoneNumber) {
 		this.phoneNumber = phoneNumber;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
 	}
 }
