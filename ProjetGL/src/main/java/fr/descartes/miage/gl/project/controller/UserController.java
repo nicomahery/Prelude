@@ -1,10 +1,12 @@
 package fr.descartes.miage.gl.project.controller;
 
 import javax.servlet.http.HttpSession;
+import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -30,7 +32,9 @@ public class UserController {
 	}
 	
 	@RequestMapping(value="/subscribe", method=RequestMethod.POST)
-	public String subscribe(Model model, Address address, User user){
+	public String subscribe(Model model,@Valid Address address,@Valid User user, BindingResult bindingResult){
+		if(bindingResult.hasErrors())
+			return "userSubForm";
 		addressRepository.save(address);
 		user.setAddress(address);
 		userRepository.save(user);
@@ -90,4 +94,6 @@ public class UserController {
 		addressRepository.save(newAddress);
 		return "userSuccess";
 	}
+	
+	
 }

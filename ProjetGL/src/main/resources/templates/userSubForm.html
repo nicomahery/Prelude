@@ -14,6 +14,7 @@
 					<div class="form-group">
 						<label class="control-label">Pseudo</label>
 						<input class="form-control" type="text" name="username" th:value="${user.username}"/>
+						<span th:errors="${user.username}"></span>
 					</div>
 					<div class="form-group">
 						<label class="control-label">Mot de passe</label>
@@ -22,14 +23,17 @@
 					<div class="form-group">
 						<label class="control-label">Confirmation Mot de passe</label>
 						<input class="form-control" type="password" name="password" th:value="${user.password}"/>
+						<span th:errors="${user.password}"></span>
 					</div>
 					<div class="form-group">
 						<label class="control-label">Prénom</label>
 						<input class="form-control" type="text" name="firstName" th:value="${user.firstName}"/>
+						<span th:if="${user.firstName != null}">Ne peut pas être vide</span>
 					</div>
 					<div class="form-group">
 						<label class="control-label">Nom de famille</label>
 						<input class="form-control" type="text" name="lastName" th:value="${user.lastName}"/>
+						<span th:errors="${user.lastName}"></span>
 					</div>
 					<div class="form-group">
 						<label class="control-label">Adresse mail</label>
@@ -42,18 +46,22 @@
 					<div class="form-group">
 						<label class="control-label">Adresse</label>
 						<input class="form-control" type="text" name="street" th:value="${address.street}"/>
+						<span th:errors="${address.street}"></span>
 					</div>
 					<div class="form-group">
 						<label class="control-label">Ville</label>
 						<input class="form-control" type="text" name="city" th:value="${address.city}"/>
+						<span th:errors="${address.city}"></span>
 					</div>
 					<div class="form-group">
 						<label class="control-label">Code postal</label>
 						<input class="form-control" type="text" name="zip" th:value="${address.zip}"/>
+						<span th:errors="${address.zip}"></span>
 					</div>
 					<div class="form-group">
 						<label class="control-label">Pays</label>
 						<input class="form-control" type="text" name="country" th:value="${address.country}"/>
+						<span th:errors="${address.country}"></span>
 					</div>
 					<button type="submit" class="btn btn-primary">S'inscrire</button>
 				</form>
