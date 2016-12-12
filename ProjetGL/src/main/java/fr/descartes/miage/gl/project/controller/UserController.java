@@ -39,7 +39,7 @@ public class UserController {
 	
 	@RequestMapping(value="/modifyPage", method=RequestMethod.GET)
 	public String modifyPage(Model model, HttpSession session){
-		User user = userRepository.findOne(Long.parseLong((String)session.getAttribute("userId")));
+		User user = userRepository.findOne((Long)session.getAttribute("userId"));
 		model.addAttribute("user", user);
 		model.addAttribute("address", user.getAddress());
 		return "userModifyForm";
@@ -69,7 +69,8 @@ public class UserController {
 	}
 	
 	@RequestMapping(value="/modify", method=RequestMethod.GET)
-	public String modify(Model model, Address address, User user){
+	public String modify(Model model, User user, Address address){
+		System.out.println(address.getId());
 		User newUser = userRepository.findOne(user.getId());
 		Address newAddress = addressRepository.findOne(address.getId());
 		newAddress.setId(address.getId());

@@ -7,7 +7,9 @@
 </head>
 <body>
 	<div th:if="${session.userId != null}">
-		<h1>Bonjour </h1><h1 th:text="${session.userId}"></h1>
+		<h1>Bonjour </h1><h1 th:text="${session.userUsername}"></h1>
+		<a th:href="@{user/modifyPage}" class="btn btn-info">Modifer le profil</a>
+		<a th:href="@{user/disconnect}" class="btn btn-danger">Déconnexion</a>
 	</div>
 	<div th:if="${session.userId == null}">
 		<div class ="panel panel-default">
