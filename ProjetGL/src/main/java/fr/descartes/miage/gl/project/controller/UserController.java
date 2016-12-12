@@ -45,23 +45,27 @@ public class UserController {
 		return "userModifyForm";
 	}
 	
-	@RequestMapping(value="/connect", method=RequestMethod.GET)
+	@RequestMapping(value="/connect", method=RequestMethod.POST)
 	public String connect(@RequestParam("username") String username, @RequestParam("password") String password, HttpSession session){
+		System.out.println("Parameters: username:"+username+" password" +password);
 		for(User u:userRepository.findAll()){
+			System.out.println("id:"+u.getId()+ " username:"+u.getUsername()+ " password:"+u.getPassword());
 			if(u.getUsername().equals(username) && u.getPassword().equals(password)) {
 				session.setAttribute("userId", u.getId());
 				session.setAttribute("userUsername", u.getUsername());
-				return "Success";
+				return "redirect:../";
 			}
 		}
-		return "connectPage";
+		return "redirect:../";
 	}
+	
+	
 	
 	@RequestMapping(value="/disconnect", method=RequestMethod.GET)
 	public String disconnect(HttpSession session){
 		session.removeAttribute("userId");
 		session.removeAttribute("userUsername");
-		return "index";
+		return "redirect:../";
 	}
 	
 	@RequestMapping(value="/modify", method=RequestMethod.GET)

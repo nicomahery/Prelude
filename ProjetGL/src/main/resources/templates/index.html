@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8"/>
+<title>ProjetGL</title>
+<link rel="stylesheet" type="text/css" href="../static/css/bootstrap.min.css" th:href="@{../css/bootstrap.min.css}"/>
+</head>
+<body>
+	<div th:if="${session.userId != null}">
+		<h1>Bonjour </h1><h1 th:text="${session.userId}"></h1>
+	</div>
+	<div th:if="${session.userId == null}">
+		<div class ="panel panel-default">
+			<div class="panel panel-heading">Connexion</div>
+			<div class="panel-body">
+				<form th:action="@{/user/connect}" method="post">
+					<div class="form-group">
+						<label class="control-label">Pseudo</label>
+						<input class="form-control" type="text" name="username"/>
+					</div>
+					<div class="form-group">
+						<label class="control-label">Mot de passe</label>
+						<input class="form-control" type="password" name ="password"/>
+					</div>
+					<button type="submit" class="btn btn-primary">Se connecter</button>
+				</form>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
