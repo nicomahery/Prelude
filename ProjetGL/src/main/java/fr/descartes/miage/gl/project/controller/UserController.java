@@ -77,7 +77,7 @@ public class UserController {
 		return "redirect:../";
 	}
 
-	@RequestMapping(value="/modify", method=RequestMethod.GET)
+	@RequestMapping(value="/modify", method=RequestMethod.POST)
 	public String modify(Model model, User user, Address address, HttpSession session){
 		Long userIDO = (Long)session.getAttribute("userId");
 		Long addressIDO = (Long)session.getAttribute("addressId");

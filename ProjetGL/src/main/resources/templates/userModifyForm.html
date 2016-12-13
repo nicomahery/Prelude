@@ -10,7 +10,7 @@
 		<div class ="panel panel-default">
 			<div class="panel panel-heading">Modification du compte</div>
 			<div class="panel-body">
-				<form th:action="@{modify}" method="get">
+				<form th:action="@{modify}" method="post">
 					<div class="form-group">
 						<label class="control-label">Pseudo</label>
 						<input class="form-control" type="text" name="username" th:value="${user.username}"/>
