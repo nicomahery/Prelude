@@ -43,6 +43,7 @@ public class UserController {
 		return "userSuccess";
 	}
 
+	
 	@RequestMapping(value="/modifyPage", method=RequestMethod.GET)
 	public String modifyPage(Model model, HttpSession session){
 		User user = userRepository.findOne((Long)session.getAttribute("userId"));
