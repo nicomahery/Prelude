@@ -29,7 +29,7 @@ public class User implements Serializable{
 	private String mailAddress;
 	@NotNull
 	private String phoneNumber;
-	@NotNull
+	
 	@ManyToOne
 	private Address address;
 
