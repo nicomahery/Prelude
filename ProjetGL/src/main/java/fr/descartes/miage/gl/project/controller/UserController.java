@@ -33,6 +33,7 @@ public class UserController {
 	
 	@RequestMapping(value="/subscribe", method=RequestMethod.POST)
 	public String subscribe(Model model,@Valid Address address,@Valid User user, BindingResult bindingResult){
+		System.out.println("Parameters: username:"+user.getPassword());
 		if(bindingResult.hasErrors())
 			return "userSubForm";
 		addressRepository.save(address);

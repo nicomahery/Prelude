@@ -6,11 +6,27 @@
 <link rel="stylesheet" type="text/css" href="../static/css/bootstrap.min.css" th:href="@{../css/bootstrap.min.css}"/>
 </head>
 <body>
+<script language="JavaScript">
+function validation(f) {
+if (f.mdp1.value != f.password.value) {
+    alert('Vous avez entrée des mots de passe différents !');
+    f.mdp1.focus();
+    return false;
+    }
+  else if (f.mdp1.value == f.password.value) {
+    return true;
+    }
+  else {
+    f.mdp1.focus();
+    return false;
+    }
+  }
+</script>
 	<div class="container">
 		<div class ="panel panel-default">
 			<div class="panel panel-heading">S'inscrire</div>
 			<div class="panel-body">
-				<form th:action="@{subscribe}" method="post">
+				<form th:action="@{subscribe}" method="post" onSubmit="return validation(this)">
 					<div class="form-group">
 						<label class="control-label">Pseudo</label>
 						<input class="form-control" type="text" name="username" th:value="${user.username}"/>
@@ -18,7 +34,7 @@
 					</div>
 					<div class="form-group">
 						<label class="control-label">Mot de passe</label>
-						<input class="form-control" type="password"/>
+						<input class="form-control" name="mdp1" type="password"/>
 					</div>
 					<div class="form-group">
 						<label class="control-label">Confirmation Mot de passe</label>
