@@ -2,7 +2,9 @@ package fr.descartes.miage.gl.project.entities;
 
 import java.io.Serializable;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
@@ -30,7 +32,7 @@ public class User implements Serializable{
 	@NotNull
 	private String phoneNumber;
 	
-	@ManyToOne
+	@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	private Address address;
 
 	public User() {
