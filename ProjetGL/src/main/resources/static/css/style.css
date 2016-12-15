@@ -1,0 +1,184 @@
+
+header {
+    position : fixed;
+    background-color: white;
+    z-index: 3;
+    width: 100%;
+}
+
+#menuband {
+    height : 70px;
+}
+
+#menu {
+    margin-top : 15px;
+}
+
+#menu a {
+    color: black;
+    font-size: 25px;
+    margin-right: 40px;
+    padding: 10px 20px;
+}
+
+#menu a:hover {
+    text-decoration: none;
+    background-color: white;
+    border: 2px solid black;
+}
+
+#connection {
+    margin-top: 25px;
+    float: right;
+}
+
+#connection a {
+    background-color: white;
+    color: black;
+    padding: 10px 20px;
+    border: 2px solid black;
+}
+
+#connection a:hover {
+    text-decoration: none;
+    background-color: whitesmoke;
+}
+
+#headband {
+    height : 500px;
+    background-image: url('../img/bg2.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+#headband h1 {
+    text-align : center;
+    color : white;
+}
+
+#contentHeadband {
+    padding-top : 180px;
+}
+
+#submit {
+    background-color: transparent;
+    color: white;
+    padding: 10px 20px;
+    border: 2px solid white;
+}
+
+#submit:hover {
+    background-color: whitesmoke;
+}
+
+
+#explication {
+    margin-top: 70px;
+}
+
+#explication img {
+    float : left;
+}
+
+#explication p {
+    padding-left : 20px;
+    float : left;
+    text-align: justify;
+    width: 250px;
+}
+
+#listcategories {
+    margin-top: 240px;
+}
+
+#listcategories h1 {
+    margin-bottom : 70px;
+}
+
+#listcategories a {
+    color : black;
+}
+
+#listcategories a:hover {
+    opacity: 0.5;
+}
+
+#map {
+    margin-top: 350px;
+}
+
+#map h1 {
+    margin-bottom: 70px;
+}
+
+#information {
+    margin-top: 750px;
+    height : 200px;
+    background-color: lightgrey;
+    color : white;
+    text-align: center;
+}
+
+#information h1 {
+    padding-top: 50px;
+}
+
+#information p {
+    margin-bottom: 30px;
+}
+
+#information a {
+    border: 2px solid white;
+    border-radius: 0;
+    color: white;
+    font-size: 17px;
+    padding: 10px 30px;
+}
+
+#information a:hover {
+    text-decoration: none;
+    background-color: whitesmoke;
+}
+
+footer {
+    margin-top: 70px;
+    height : 200px;
+    background-color: black;
+    color : white;
+    text-align: center;
+}
+
+footer a {
+    color: white;
+}
+
+footer a:hover {
+    text-decoration: none;
+    color : whitesmoke;
+}
+
+
+#aboutPage h1, #informationPage h1 {
+    text-align : center;
+}
+
+#listProducts a {
+    color : black;
+}
+
+#listProducts a:hover {
+    opacity: 0.5;
+    text-decoration: none;
+}
+
+#categoriesList a {
+    color: black;
+}
+
+#categoriesList a:hover {
+    text-decoration: none;
+    color: whitesmoke;
+}
+
