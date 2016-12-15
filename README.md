@@ -15,11 +15,12 @@ Blabla write this
 
 
 ### Team
-  - Mahery RAZAFINIAINA as @nicomahery
+  - Mahery RAZAFINIAINA as [@nicomahery](https://github.com/nicomahery).
   - Caroline PEGART as 
   - Naomie FOURNIE as 
-  - Wei HE as @WeiH713
-  - Matthieu TENDEIRO as @Hopykito
+  - Wei HE as [@WeiH713](https://github.com/WeiH713).
+  - Matthieu TENDEIRO as [@Hopykito](https://github.com/Hopykito).
+
 
 ### Installation
 
