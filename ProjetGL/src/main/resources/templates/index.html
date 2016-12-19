@@ -8,6 +8,8 @@
 <body>
 	<div th:if="${session.userId != null}">
 		<h1>Bonjour </h1><h1 th:text="${session.userUsername}"></h1>
+		<a th:href="@{advertisement/createAdvertisementPage}" class="btn btn-danger">Crèer une annonce</a>
+		<a th:href="@{advertisement/userAdvertisementsPage}" class="btn btn-info">Consulter mes annonces</a>
 		<a th:href="@{user/modifyPage}" class="btn btn-info">Modifer le profil</a>
 		<a th:href="@{user/disconnect}" class="btn btn-danger">Déconnexion</a>
 	</div>

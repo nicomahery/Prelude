@@ -73,6 +73,14 @@ public class Advertisement {
 		return owner;
 	}
 
+	public Address getAddress() {
+		return address;
+	}
+
+	public void setAddress(Address address) {
+		this.address = address;
+	}
+
 	public void setOwner(User owner) {
 		this.owner = owner;
 	}
