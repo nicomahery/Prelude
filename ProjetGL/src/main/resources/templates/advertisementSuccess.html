@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"/>
+<title>Récapitulatif Annonce</title>
+</head>
+<body>
+<div class="container">
+		<div class ="panel panel-default">
+		    <div class="panel panel-heading">Résumé Annonce</div>
+			<div class="panel-body">
+				
+				<div class="form-group">
+					<label>Pseudo:</label>
+					<label th:text="${user.username}"></label>
+				</div>
+				
+				<div class="form-group">
+					<label>Prénom</label>
+					<label th:text="${user.firstName}"></label>
+				</div>
+				<div class="form-group">
+					<label>Nom:</label>
+					<label th:text="${user.lastName}"></label>
+				</div>
+				<div class="form-group">
+					<label>Numéro de téléphone</label>
+					<label th:text="${user.phoneNumber}"></label>
+				</div>
+				<div class="form-group">
+					<label>adresse email:</label>
+					<label th:text="${user.mailAddress}"></label>
+				</div>
+				<div class="form-group">
+					<label>Adresse:</label>
+					<label th:text="${advertisement.address.street}"></label>
+				</div>
+				<div class="form-group">
+					<label>Ville:</label>
+					<label th:text="${advertisement.address.city}"></label>
+				</div>
+				<div class="form-group">
+					<label>Code postal:</label>
+					<label th:text="${advertisement.address.zip}"></label>
+				</div>
+				<div class="form-group">
+					<label>Pays:</label>
+					<label th:text="${advertisement.address.country}"></label>
+				</div>
+				<div class="form-group">
+					<label>Titre</label>
+					<label th:text="${advertisement.title}"></label>
+				</div>
+				<div class="form-group">
+					<label>Description:</label>
+					<label th:text="${advertisement.description}"></label>
+				</div>
+				<div class="form-group">
+					<label>Catègorie:</label>
+					<label th:text="${advertisement.category.name}"></label>
+				</div>
+			</div>
+		</div>
+</div>
+
+</body>
+</html>
