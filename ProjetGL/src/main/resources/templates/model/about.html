@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <title>A propos</title>
-    <link rel="icon"  type="image/png" href="">
-    <link type="text/css" rel="stylesheet" href="../../static/css/bootstrap.min.css" >
-    <link type="text/css" rel="stylesheet" href="../../static/css/style.css" >
+    <link rel="icon" href="../public/img/iconCarton.png" />
+    <link type="text/css" rel="stylesheet" href="../public/css/bootstrap.min.css" >
+    <link type="text/css" rel="stylesheet" href="../public/css/style.css" >
 </head>
 <body>
 <header>
@@ -13,20 +13,36 @@
         <div class="row">
             <div id="menuband">
                 <div id="logo" class="col-lg-2">
-                    <img src="../../static/img/iconCarton.jpg" width="70" heigth="70" alt="">
+                    <img src="../public/img/iconCarton.jpg" width="70" heigth="70" alt="">
                 </div>
-                <div id="menu" class="col-lg-8">
-                    <a href="#">Accueil</a>
-                    <a href="#">Voir nos annonces</a>
-                    <a href="#">A Propos</a>
+                <div id="menu" class="col-lg-7">
+                    <nav class="navbar navbar-default">
+                        <div class="container">
+                            <div class="navbar-header">
+                                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false">
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                </button>
+                            </div>
+                            <div id="navbar" class="collapse navbar-collapse">
+                                <ul class="nav navbar-nav">
+                                    <li><a href="index.html">Accueil</a></li>
+                                    <li><a href="research.html">Voir nos annonces</a></li>
+                                    <li><a href="about.html">A Propos</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </nav>
                 </div>
-                <div id="connection" class="col-lg-2">
-                    <a href=""><img src="../../static/img/iconConnexion.png" width="25" height="25" alt="">
-                        Se connecter</a>
+                <div id="connection" class="col-lg-3">
+                    <a href="login.html"><img src="../public/img/iconConnexion.png" width="25" height="25" alt="">
+                        Se connecter - S'inscrire</a>
                 </div>
             </div>
         </div>
     </div>
+
 </header>
 <div class="container-fluid">
     <div class="row">
@@ -52,11 +68,11 @@
         <div id="contact">
             <h1>Nous contacter</h1>
             <p>Quisque maximus ex purus, a viverra sapien lobortis eu. Proin nec bibendum metus. Sed sodales erat tellus, ac dapibus leo venenatis quis. Vivamus scelerisque eu ante et porta. Ut ut turpis tristique, pellentesque ipsum blandit, cursus nibh. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nibh nulla, dictum mattis ipsum vitae, elementum commodo dolor. </p>
-            <img src="../../static/img/phone.png" width="30" height="30" alt="">00 00 00 00 00<br>
-            <img src="../../static/img/mail.png" width="50" height="40" alt="">test@gmail.com<br>
-            <a href="#"><img src="../../static/img/facebook.png" width="50" height="50" alt=""></a>
-            <a href="#"><img src="../../static/img/twitter.png" width="50" height="50" alt=""></a>
-            <a href="#"><img src="../../static/img/google.png" width="50" height="50" alt=""></a>
+            <img src="../public/img/phone.png" width="30" height="30" alt="">00 00 00 00 00<br>
+            <img src="../public/img/mail.png" width="50" height="40" alt="">test@gmail.com<br>
+            <a href="#"><img src="../public/img/facebook.png" width="50" height="50" alt=""></a>
+            <a href="#"><img src="../public/img/twitter.png" width="50" height="50" alt=""></a>
+            <a href="#"><img src="../public/img/google.png" width="50" height="50" alt=""></a>
         </div>
         <div id="careers">
             <h1>Nous rejoindre</h1>
@@ -70,14 +86,14 @@
         <div class="row">
             <div id="about" class="col-lg-4">
                 <h1>A Propos</h1>
-                <a href="#">Qui sommes-nous ?</a><br>
-                <a href="#">Nous contacter</a><br>
-                <a href="#">Nous rejoindre</a>
+                <a href="about.html#whoAreUs">Qui sommes-nous ?</a><br>
+                <a href="about.html#contact">Nous contacter</a><br>
+                <a href="about.html#careers">Nous rejoindre</a>
             </div>
             <div id="generalInformations" class="col-lg-4">
                 <h1>Informations générales</h1>
-                <a href="#">Conditions générales d'utilisation</a><br>
-                <a href="#">Vie privée / cookies</a>
+                <a href="informations.html#condition">Conditions générales d'utilisation</a><br>
+                <a href="informations.html#privateLife">Vie privée / cookies</a>
             </div>
             <div id="socialNetworks" class="col-lg-4">
                 <h1>Réseaux sociaux</h1>
@@ -89,8 +105,8 @@
     </div>
 </footer>
 
-<script type="text/javascript" src="../../static/js/jquery-3.1.1.min.js"></script>
-<script type="text/javascript" src="../../static/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="../public/js/jquery-3.1.1.min.js"></script>
+<script type="text/javascript" src="../public/js/bootstrap.min.js"></script>
 
 </body>
 </html>
