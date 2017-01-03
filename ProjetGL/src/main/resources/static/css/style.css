@@ -1,0 +1,313 @@
+
+header {
+    position : fixed;
+    background-color: white;
+    z-index: 3;
+    width: 100%;
+}
+
+#menuband {
+    height : 70px;
+}
+
+.navbar {
+    margin-bottom: 0px;
+}
+
+#menu a {
+    color: black;
+    font-size: 25px;
+    margin-right: 40px;
+    padding: 25px 20px;
+}
+
+#menu a:hover {
+    text-decoration: none;
+    background-color: whitesmoke;
+}
+
+#connection {
+    margin-top: 25px;
+    float: right;
+}
+
+#connection a {
+    background-color: white;
+    color: black;
+    padding: 10px 20px;
+    border: 2px solid black;
+}
+
+#connection a:hover {
+    text-decoration: none;
+    background-color: whitesmoke;
+}
+
+#headband {
+    height : 500px;
+    background-image: url('../img/bg2.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+#headband h1 {
+    text-align : center;
+    color : white;
+}
+
+#contentHeadband {
+    padding-top : 180px;
+}
+
+#submit {
+    background-color: transparent;
+    color: white;
+    padding: 10px 20px;
+    border: 2px solid white;
+}
+
+#submit:hover {
+    background-color: whitesmoke;
+}
+
+
+#explication {
+    margin-top: 70px;
+}
+
+#explication img {
+    float : left;
+}
+
+#explication p {
+    padding-left : 20px;
+    float : left;
+    text-align: justify;
+    width: 250px;
+}
+
+#listcategories {
+    margin-top: 240px;
+}
+
+#listcategories h1 {
+    margin-bottom : 70px;
+}
+
+#listcategories a {
+    color : black;
+}
+
+#listcategories a:hover {
+    opacity: 0.5;
+}
+
+#mapDiv {
+    margin-top: 350px;
+}
+
+
+
+#mapDiv h1 {
+    margin-bottom: 70px;
+}
+
+#mapDiv ul {
+    list-style:none;
+}
+
+#mapDiv a {
+    color: black;
+}
+
+#mapDiv a:hover {
+    text-decoration: none;
+    color: whitesmoke;
+}
+
+#information {
+    margin-top: 500px;
+    height : 200px;
+    background-color: lightgrey;
+    color : white;
+    text-align: center;
+}
+
+#information h1 {
+    padding-top: 50px;
+}
+
+#information p {
+    margin-bottom: 30px;
+}
+
+#information a {
+    border: 2px solid white;
+    border-radius: 0;
+    color: white;
+    font-size: 17px;
+    padding: 10px 30px;
+}
+
+#information a:hover {
+    text-decoration: none;
+    background-color: whitesmoke;
+}
+
+footer {
+    margin-top: 70px;
+    background-color: black;
+    color : white;
+    text-align: center;
+}
+
+footer a {
+    color: white;
+}
+
+footer a:hover {
+    text-decoration: none;
+    color : whitesmoke;
+}
+
+
+#aboutPage h1, #informationPage h1 {
+    text-align : center;
+}
+
+#listProducts a {
+    color : black;
+}
+
+#listProducts a:hover {
+    opacity: 0.5;
+    text-decoration: none;
+}
+
+#categoriesList p {
+    font-size : 20px;
+    text-align: center;
+}
+
+#categoriesList a {
+    color: black;
+}
+
+#categoriesList a:hover {
+    text-decoration: none;
+    color: whitesmoke;
+}
+
+#picture img {
+    width : 100%;
+    height: 100%;
+    margin-top: 20px;
+}
+
+#infoProduct {
+    margin-top : 20px;
+}
+
+#infoProduct p {
+    margin-top: 20px;
+}
+
+#descriptionDiv {
+    margin-top: 50px;
+}
+
+#descriptionDiv img{
+    margin-right: 10px;
+}
+
+#loginDiv {
+    margin-top: 70px;
+}
+
+#loginDiv input[type='submit'] {
+    background-color: white;
+    color: black;
+    padding: 10px 20px;
+    border: 2px solid black;
+    margin-top: 20px;
+    margin-left: 35%;
+}
+
+#loginDiv input[type='submit']:hover {
+    text-decoration: none;
+    background-color: whitesmoke;
+}
+
+#login {
+    border: 2px solid black;
+    border-radius: 5px;
+    padding-bottom: 15px;
+}
+
+#login h1 {
+    border: 2px solid black;
+    border-radius: 5px;
+    background-color: whitesmoke;
+    margin: -2px -17px 10px -17px;
+    text-align: center;
+    font-size: 30px;
+    padding: 10px 0px 10px 0px;
+}
+
+#registration {
+    border: 2px solid black;
+    border-radius: 5px;
+    padding-bottom: 15px;
+}
+
+#registration h1 {
+    border: 2px solid black;
+    border-radius: 5px;
+    background-color: whitesmoke;
+    margin: -2px -17px 10px -17px;
+    text-align: center;
+    font-size: 30px;
+    padding: 10px 0px 10px 0px;
+}
+
+.navbar-default {
+    background-color: white;
+    border-color: white;
+}
+
+#description {
+    height : 300px;
+    margin-top : 20px;
+}
+
+#blocMap {
+    float :left;
+    margin-top: 20px;
+    width: 500px;
+    height: 300px;
+}
+
+#infoPerson {
+    height : 300px;
+    margin-top : 20px;
+}
+
+#infoMap {
+    margin-top : 20px;
+    margin-left : 20px;
+    float : left;
+}
+
+#addressSubmit {
+    background-color: white;
+    color: black;
+    padding: 10px 20px;
+    border: 2px solid black;
+}
+
+#addressSubmit:hover {
+    text-decoration: none;
+    background-color: whitesmoke;
+}
