@@ -1,13 +1,12 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <title>Produit</title>
-    <link rel="icon" href="../public/img/iconCarton.png" />
-    <link type="text/css" rel="stylesheet" href="../public/css/bootstrap.min.css" >
-    <link type="text/css" rel="stylesheet" href="../public/css/style.css" >
-    <link type="text/css" rel="stylesheet" href="../public/css/fotorama.css" >
-
+    <meta charset="UTF-8"/>
+    <title>Annonce</title>
+    <link rel="icon" th:href="@{../img/iconCarton.png}" />
+    <link rel="stylesheet" type="text/css" th:href="@{../css/bootstrap.min.css}"/>
+    <link type="text/css" rel="stylesheet" th:href="@{../css/jquery-jvectormap-2.0.3.css}" />
+    <link type="text/css" rel="stylesheet" th:href="@{../css/style.css}"/>
 </head>
 <body>
 <header>
@@ -15,7 +14,7 @@
         <div class="row">
             <div id="menuband">
                 <div id="logo" class="col-lg-2">
-                    <img src="../public/img/iconCarton.jpg" width="70" heigth="70" alt="">
+                    <img src="../public/img/iconCarton.jpg" width="70" heigth="70" alt=""/>
                 </div>
                 <div id="menu" class="col-lg-7">
                     <nav class="navbar navbar-default">
@@ -38,7 +37,7 @@
                     </nav>
                 </div>
                 <div id="connection" class="col-lg-3">
-                    <a href="login.html"><img src="../public/img/iconConnexion.png" width="25" height="25" alt="">
+                    <a href="login.html"><img src="../public/img/iconConnexion.png" width="25" height="25" alt=""/>
                         Se connecter - S'inscrire</a>
                 </div>
             </div>
@@ -51,8 +50,8 @@
             <div id="contentHeadband" class=" col-lg-2 col-lg-offset-5">
                 <h1>Informations générales</h1>
                 <form method="" action="" class="text-center">
-                    <input type="text" class="form-control"><br>
-                    <input type="submit" id="submit" value="Rechercher">
+                    <input type="text" class="form-control"/><br/>
+                    <input type="submit" id="submit" value="Rechercher"/>
                 </form>
             </div>
         </div>
@@ -63,15 +62,15 @@
         <div class="col-lg-12" id="infoProduct">
             <div class="row">
                 <div class="col-lg-6 fotorama" data-nav="thumbs" data-loop="true" id="picture">
-                    <img src="../public/img/imgProduct.jpg" width="" height="" alt=""> <!-- Les images du produits -->
-                    <img src="../public/img/canape.jpg" width="" height="" alt=""> <!-- Les images du produits -->
+                    <img src="../public/img/imgProduct.jpg" width="" height="" alt=""/> <!-- Les images du produits -->
+                    <img src="../public/img/canape.jpg" width="" height="" alt=""/> <!-- Les images du produits -->
                 </div>
                 <div class="col-lg-6">
                     <h1>Canapé</h1>
-                    <p><img src="../public/img/date.jpg" width="25" height="25" alt="">Mise en ligne le : 15 décembre 2016</p>
-                    <p><img src="../public/img/iconConnexion.png" width="25" height="25" alt="">Par : Caroline Pégart</p>
-                    <p><img src="../public/img/phone.png" width="25" height="25" alt="">Téléphone : 06 29 47 43 24</p>
-                    <p><img src="../public/img/place.png" width="25" height="25" alt="">Adresse : 4 rue Edgar Degas, 78360, Montesson</p>
+                    <p><img src="../public/img/date.jpg" width="25" height="25" alt=""/>Mise en ligne le : 15 décembre 2016</p>
+                    <p><img src="../public/img/iconConnexion.png" width="25" height="25" alt=""/>Par : Caroline Pégart</p>
+                    <p><img src="../public/img/phone.png" width="25" height="25" alt=""/>Téléphone : 06 29 47 43 24</p>
+                    <p><img src="../public/img/place.png" width="25" height="25" alt=""/>Adresse : 4 rue Edgar Degas, 78360, Montesson</p>
                 </div>
             </div>
         </div>
@@ -94,9 +93,9 @@
                     <div class="text-center">
                         <h3>Se rendre à l'adresse </h3>
                         <label>Entrez votre adresse de départ :</label>
-                        <input type="text" class="form-control" name="startAddress" id="startAddress"><br>
-                        <input type="hidden" name="finalAddress" value="4 rue Edgar Degas, 78360, Montesson" id="finalAddress">
-                        <input class="text-center" id="addressSubmit" type="submit" value="Voir l'itinéraire">
+                        <input type="text" class="form-control" name="startAddress" id="startAddress"/><br/>
+                        <input type="hidden" name="finalAddress" value="4 rue Edgar Degas, 78360, Montesson" id="finalAddress"/>
+                        <input class="text-center" id="addressSubmit" type="submit" value="Voir l'itinéraire"/>
                     </div>
                 </div>
             </div>
@@ -109,30 +108,29 @@
     </div>
 
 </div>
-
 <footer>
-    <div class="container">
-        <div class="row">
-            <div id="about" class="col-lg-4">
-                <h1>A Propos</h1>
-                <a href="about.html#whoAreUs">Qui sommes-nous ?</a><br>
-                <a href="about.html#contact">Nous contacter</a><br>
-                <a href="about.html#careers">Nous rejoindre</a>
-            </div>
-            <div id="generalInformations" class="col-lg-4">
-                <h1>Informations générales</h1>
-                <a href="informations.html#condition">Conditions générales d'utilisation</a><br>
-                <a href="informations.html#privateLife">Vie privée / cookies</a>
-            </div>
-            <div id="socialNetworks" class="col-lg-4">
-                <h1>Réseaux sociaux</h1>
-                <a href="#"><img src="../public/img/facebook.png" width="50" height="50" alt=""></a>
-                <a href="#"><img src="../public/img/twitter.png" width="50" height="50" alt=""></a>
-                <a href="#"><img src="../public/img/google.png" width="50" height="50" alt=""></a>
+        <div class="container">
+            <div class="row">
+                <div id="about" class="col-lg-4">
+                    <h1>A Propos</h1>
+                    <a th:href="@{/about#whoAreUs}">Qui sommes-nous ?</a><br/>
+                    <a th:href="@{/about#contact}">Nous contacter</a><br/>
+                    <a th:href="@{/about#careers}">Nous rejoindre</a>
+                </div>
+                <div id="generalInformations" class="col-lg-4">
+                    <h1>Informations générales</h1>
+                    <a th:href="@{/about#condition}">Conditions générales d'utilisation</a><br/>
+                    <a th:href="@{/about#privateLife}">Vie privée / cookies</a>
+                </div>
+                <div id="socialNetworks" class="col-lg-4">
+                    <h1>Réseaux sociaux</h1>
+                    <a href="#"><img th:src="@{../img/facebook.png}" width="50" height="50" alt=""/></a>
+                    <a href="#"><img th:src="@{../img/twitter.png}" width="50" height="50" alt=""/></a>
+                    <a href="#"><img th:src="@{../img/google.png}" width="50" height="50" alt=""/></a>
+                </div>
             </div>
         </div>
-    </div>
-</footer>
+    </footer>
 
 <!--<script type="text/javascript" src="../public/js/jquery-3.1.1.min.js"></script>
 <script type="text/javascript" src="../public/js/bootstrap.min.js"></script>-->

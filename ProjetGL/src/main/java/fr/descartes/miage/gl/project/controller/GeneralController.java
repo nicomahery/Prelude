@@ -8,6 +8,16 @@ public class GeneralController {
 	
 	@RequestMapping("/")
 	public String welcome(){
-		return "index";
+		return "view/index";
+	}
+	
+	@RequestMapping("/about")
+	public String about(){
+		return "view/about";
+	}
+	
+	@RequestMapping("/information")
+	public String information(){
+		return "view/information";
 	}
 }

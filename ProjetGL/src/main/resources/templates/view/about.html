@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8"/>
     <title>A propos</title>
-    <link rel="icon" href="../public/img/iconCarton.png" />
-    <link type="text/css" rel="stylesheet" href="../public/css/bootstrap.min.css" >
-    <link type="text/css" rel="stylesheet" href="../public/css/style.css" >
+    <link rel="icon" th:href="@{../img/iconCarton.png}" />
+    <link rel="stylesheet" type="text/css" th:href="@{../css/bootstrap.min.css}"/>
+    <link type="text/css" rel="stylesheet" th:href="@{../css/jquery-jvectormap-2.0.3.css}" />
+    <link type="text/css" rel="stylesheet" th:href="@{../css/style.css}"/>
 </head>
 <body>
 <header>
@@ -13,7 +14,7 @@
         <div class="row">
             <div id="menuband">
                 <div id="logo" class="col-lg-2">
-                    <img src="../public/img/iconCarton.jpg" width="70" heigth="70" alt="">
+                    <img th:src="@{../img/iconCarton.png}" width="70" heigth="70" alt=""/>
                 </div>
                 <div id="menu" class="col-lg-7">
                     <nav class="navbar navbar-default">
@@ -27,16 +28,16 @@
                             </div>
                             <div id="navbar" class="collapse navbar-collapse">
                                 <ul class="nav navbar-nav">
-                                    <li><a href="index.html">Accueil</a></li>
+                                    <li><a th:href="@{/}">Accueil</a></li>
                                     <li><a href="research.html">Voir nos annonces</a></li>
-                                    <li><a href="about.html">A Propos</a></li>
+                                    <li><a th:href="@{/about}">A Propos</a></li>
                                 </ul>
                             </div>
                         </div>
                     </nav>
                 </div>
                 <div id="connection" class="col-lg-3">
-                    <a href="login.html"><img src="../public/img/iconConnexion.png" width="25" height="25" alt="">
+                    <a href="login.html"><img  th:src="@{../img/iconConnexion.png}" width="25" height="25" alt=""/>
                         Se connecter - S'inscrire</a>
                 </div>
             </div>
@@ -50,8 +51,8 @@
             <div id="contentHeadband" class=" col-lg-2 col-lg-offset-5">
                 <h1>A propos</h1>
                 <form method="" action="" class="text-center">
-                    <input type="text" class="form-control"><br>
-                    <input type="submit" id="submit" value="Rechercher">
+                    <input type="text" class="form-control"/><br/>
+                    <input type="submit" id="submit" value="Rechercher"/>
                 </form>
             </div>
         </div>
@@ -68,11 +69,11 @@
         <div id="contact">
             <h1>Nous contacter</h1>
             <p>Quisque maximus ex purus, a viverra sapien lobortis eu. Proin nec bibendum metus. Sed sodales erat tellus, ac dapibus leo venenatis quis. Vivamus scelerisque eu ante et porta. Ut ut turpis tristique, pellentesque ipsum blandit, cursus nibh. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nibh nulla, dictum mattis ipsum vitae, elementum commodo dolor. </p>
-            <img src="../public/img/phone.png" width="30" height="30" alt="">00 00 00 00 00<br>
-            <img src="../public/img/mail.png" width="50" height="40" alt="">test@gmail.com<br>
-            <a href="#"><img src="../public/img/facebook.png" width="50" height="50" alt=""></a>
-            <a href="#"><img src="../public/img/twitter.png" width="50" height="50" alt=""></a>
-            <a href="#"><img src="../public/img/google.png" width="50" height="50" alt=""></a>
+            <img th:src="@{../img/phone.png}" width="30" height="30" alt=""/>00 00 00 00 00<br/>
+            <img th:src="@{../img/mail.png}" width="50" height="40" alt=""/>test@gmail.com<br/>
+            <a href="#"><img th:src="@{../img/facebook.png}" width="50" height="50" alt=""/></a>
+            <a href="#"><img th:src="@{../img/twitter.png}" width="50" height="50" alt=""/></a>
+            <a href="#"><img th:src="@{../img/google.png}"  width="50" height="50" alt=""/></a>
         </div>
         <div id="careers">
             <h1>Nous rejoindre</h1>
@@ -82,31 +83,31 @@
     </div>
 </div>
 <footer>
-    <div class="container">
-        <div class="row">
-            <div id="about" class="col-lg-4">
-                <h1>A Propos</h1>
-                <a href="about.html#whoAreUs">Qui sommes-nous ?</a><br>
-                <a href="about.html#contact">Nous contacter</a><br>
-                <a href="about.html#careers">Nous rejoindre</a>
-            </div>
-            <div id="generalInformations" class="col-lg-4">
-                <h1>Informations générales</h1>
-                <a href="informations.html#condition">Conditions générales d'utilisation</a><br>
-                <a href="informations.html#privateLife">Vie privée / cookies</a>
-            </div>
-            <div id="socialNetworks" class="col-lg-4">
-                <h1>Réseaux sociaux</h1>
-                <a href="#"><img src="../public/img/facebook.png" width="50" height="50" alt=""></a>
-                <a href="#"><img src="../public/img/twitter.png" width="50" height="50" alt=""></a>
-                <a href="#"><img src="../public/img/google.png" width="50" height="50" alt=""></a>
+        <div class="container">
+            <div class="row">
+                <div id="about" class="col-lg-4">
+                    <h1>A Propos</h1>
+                    <a th:href="@{/about#whoAreUs}">Qui sommes-nous ?</a><br/>
+                    <a th:href="@{/about#contact}">Nous contacter</a><br/>
+                    <a th:href="@{/about#careers}">Nous rejoindre</a>
+                </div>
+                <div id="generalInformations" class="col-lg-4">
+                    <h1>Informations générales</h1>
+                    <a th:href="@{/about#condition}">Conditions générales d'utilisation</a><br/>
+                    <a th:href="@{/about#privateLife}">Vie privée / cookies</a>
+                </div>
+                <div id="socialNetworks" class="col-lg-4">
+                    <h1>Réseaux sociaux</h1>
+                    <a href="#"><img th:src="@{../img/facebook.png}" width="50" height="50" alt=""/></a>
+                    <a href="#"><img th:src="@{../img/twitter.png}" width="50" height="50" alt=""/></a>
+                    <a href="#"><img th:src="@{../img/google.png}" width="50" height="50" alt=""/></a>
+                </div>
             </div>
         </div>
-    </div>
-</footer>
+    </footer>
 
-<script type="text/javascript" src="../public/js/jquery-3.1.1.min.js"></script>
-<script type="text/javascript" src="../public/js/bootstrap.min.js"></script>
+<script type="text/javascript"  th:src="@{../js/jquery-3.1.1.min.js}></script>
+<script type="text/javascript"  th:src="@{../js/bootstrap.min.js}"></script>
 
 </body>
 </html>
