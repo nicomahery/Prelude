@@ -13,6 +13,22 @@
     var input = document.getElementById('address');
     autocomplete = new google.maps.places.Autocomplete(input);
 	</script>
+	<script language="JavaScript">
+	function validation(f) {
+	if (f.mdp1.value != f.password.value) {
+	    alert('Vous avez entrée des mots de passe différents !');
+	    f.mdp1.focus();
+	    return false;
+	    }
+	  else if (f.mdp1.value == f.password.value) {
+	    return true;
+	    }
+	  else {
+	    f.mdp1.focus();
+	    return false;
+	    }
+	  }
+	</script>
 </head>
 <body>
 <header>
@@ -67,9 +83,9 @@
     <div class="row" id="loginDiv">
         <div class="col-lg-4" id="login">
             <h1>Se connecter</h1>
-            <form method="POST" action="@{connect}">
+            <form method="POST" th:action="@{connect}">
                 <label>Identifiant</label>
-                <input type="text" name="login" class="form-control"> </input>
+                <input type="text" name="username" class="form-control"> </input>
                 <label>Mot de passe</label>
                 <input type="password" name="password" class="form-control"> </input>
                 <input type="submit"> </input>
@@ -77,18 +93,39 @@
         </div>
         <div class="col-lg-offset-4 col-lg-4" id="registration">
             <h1>Toujours pas inscrit ?</h1>
-            <form method="POST" action="@{subscribe}">
+            <form method="POST" th:action="@{subscribe}" onSubmit="return validation(this)">
                 <label>Nom</label>
-                <input type="text" name="name" class="form-control"></input>
+                <input type="text" name="lastName" class="form-control" th:value="${user.lastName}"></input>
+                <span th:errors="${user.lastName}"></span>
                 <label>Prénom</label>
-                <input type="text" name="firstname" class="form-control"></input>
-                <label>Adresse</label>
-                <input type="text" id="address" name="address" class="form-control"></input>
-                <label>Identifiant</label>
-                <input type="text" name="login" class="form-control"></input>
+                <input type="text" name="firstName" class="form-control" th:value="${user.firstName}"></input>
+                <span th:if="${user.firstName != null}"></span>
+                <label>Adresse email</label>
+                 <input type="text" name="mailAddress" class="form-control" th:value="${user.mailAddress}"></input>
                 <label>Mot de passe</label>
+                <input type="password" name="mdp1" class="form-control"></input>
+                <label>Confirmation du mot de passe</label>
                 <input type="password" name="password" class="form-control"></input>
+                <span th:errors="${user.password}"></span>
+                <label>Numero de telephone</label>
+                <input type="text" id="phoneNumber" name="phoneNumber" th:value="${user.phoneNumber}" class="form-control"></input>
+                <label>Pseudo</label>
+                <input type="text" id="username" name="username" th:value="${user.username}" class="form-control"></input>
+                <span th:errors="${user.username}"></span>
+                <label>Adresse</label>
+                <input type="text" id="street" name="street" class="form-control" th:value="${address.street}"></input>
+                <span th:errors="${address.street}"></span>
+                <label>Ville</label>
+                <input type="text" id="city" name="city" class="form-control" th:value="${address.city}"></input>
+                <span th:errors="${address.city}"></span>
+                <label>Code postal</label>
+                <input type="text" id="zip" name="zip" class="form-control" th:value="${address.zip}"></input>
+                <span th:errors="${address.zip}"></span>
+               <label>Pays</label>
+                <input type="text" id="country" name="country" class="form-control" th:value="${address.country}"></input>
+                <span th:errors="${address.country}"></span>  
                 <input type="submit"></input>
+
             </form>
         </div>
     </div>
