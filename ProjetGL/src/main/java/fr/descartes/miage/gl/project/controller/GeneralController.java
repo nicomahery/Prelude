@@ -18,6 +18,6 @@ public class GeneralController {
 	
 	@RequestMapping("/information")
 	public String information(){
-		return "view/information";
+		return "view/informations";
 	}
 }

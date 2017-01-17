@@ -7,6 +7,9 @@
     <link rel="stylesheet" type="text/css" th:href="@{../css/bootstrap.min.css}"/>
     <link type="text/css" rel="stylesheet" th:href="@{../css/jquery-jvectormap-2.0.3.css}" />
     <link type="text/css" rel="stylesheet" th:href="@{../css/style.css}"/>
+	<script type="text/javascript"  th:src="@{../js/jquery-3.1.1.min.js}"></script>
+	<script type="text/javascript"  th:src="@{../js/bootstrap.min.js}"></script>
+    
 </head>
 <body>
 <header>
@@ -37,7 +40,7 @@
                     </nav>
                 </div>
                 <div id="connection" class="col-lg-3">
-                    <a href="login.html"><img  th:src="@{../img/iconConnexion.png}" width="25" height="25" alt=""/>
+                     <a th:href="@{/user/subscribePage}"><img th:src="@{../img/iconConnexion.png}" width="25" height="25" alt=""/>
                         Se connecter - S'inscrire</a>
                 </div>
             </div>
@@ -93,8 +96,8 @@
                 </div>
                 <div id="generalInformations" class="col-lg-4">
                     <h1>Informations générales</h1>
-                    <a th:href="@{/about#condition}">Conditions générales d'utilisation</a><br/>
-                    <a th:href="@{/about#privateLife}">Vie privée / cookies</a>
+                    <a th:href="@{/information#condition}">Conditions générales d'utilisation</a><br/>
+                    <a th:href="@{/information#privateLife}">Vie privée / cookies</a>
                 </div>
                 <div id="socialNetworks" class="col-lg-4">
                     <h1>Réseaux sociaux</h1>
@@ -105,9 +108,5 @@
             </div>
         </div>
     </footer>
-
-<script type="text/javascript"  th:src="@{../js/jquery-3.1.1.min.js}></script>
-<script type="text/javascript"  th:src="@{../js/bootstrap.min.js}"></script>
-
 </body>
 </html>

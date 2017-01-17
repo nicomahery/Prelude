@@ -29,7 +29,7 @@ public class UserController {
 	public String create(Model model){
 		model.addAttribute("user", new User());
 		model.addAttribute("address", new Address());
-		return "userSubForm";
+		return "view/login";
 	}
 
 	@RequestMapping(value="/subscribe", method=RequestMethod.POST)
