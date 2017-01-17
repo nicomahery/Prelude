@@ -86,6 +86,7 @@ public class UserController {
 		Address newAddress = addressRepository.findOne(addressIDO);
 		
 		newAddress.setId(addressIDO);
+		newAddress.setState(address.getState());
 		newAddress.setStreet(address.getStreet());
 		newAddress.setCity(address.getCity());
 		newAddress.setZip(address.getZip());

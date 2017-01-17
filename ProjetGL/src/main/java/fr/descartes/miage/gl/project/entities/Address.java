@@ -9,6 +9,7 @@ public class Address {
 	
 	@Id @GeneratedValue
 	private long id;
+	private String state;
 	private String street;
 	private String city;
 	private String country;
@@ -57,6 +58,15 @@ public class Address {
 	public void setZip(String zip) {
 		this.zip = zip;
 	}
+
+	public String getState() {
+		return state;
+	}
+
+	public void setState(String state) {
+		this.state = state;
+	}
+	
 	
 	
 }
