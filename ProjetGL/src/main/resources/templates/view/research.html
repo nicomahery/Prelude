@@ -7,6 +7,8 @@
     <link rel="stylesheet" type="text/css" th:href="@{../css/bootstrap.min.css}"/>
     <link type="text/css" rel="stylesheet" th:href="@{../css/jquery-jvectormap-2.0.3.css}" />
     <link type="text/css" rel="stylesheet" th:href="@{../css/style.css}"/>
+    <script type="text/javascript" th:href="@{../js/jquery-1.12.3.min.js}"></script>
+    <script type="text/javascript" th:href="@{../js/bootstrap.min.js}"></script>
 </head>
 <body>
 <header>
@@ -37,7 +39,7 @@
                     </nav>
                 </div>
                 <div id="connection" class="col-lg-3">
-                    <a href="login.html"><img src="../public/img/iconConnexion.png" width="25" height="25" alt=""/>
+                    <a href="login.html"><img src="@{../img/iconConnexion.png}" width="25" height="25" alt=""/>
                         Se connecter - S'inscrire</a>
                 </div>
             </div>
@@ -64,44 +66,44 @@
             <div class="row">
                 <div class="col-lg-12" id="listProducts">
                     <h1 class="text-center">Produits</h1>
-                    <a href="#">
+                    <a th:href="@{/product}">
                         <div id="produit1" class="col-lg-4">
-                            <img src="../public/img/imgProduct.jpg" width="200" height="150" alt=""/>
+                            <img src="@{../img/imgProduct.jpg}" width="200" height="150" alt=""/>
                             <h3>Canapé</h3>
                             <p>Mise en ligne le : 15 décembre 2016</p>
                         </div>
                     </a>
                     <a href="#">
                         <div id="produit2" class="col-lg-4">
-                            <img src="../public/img/imgProduct2.jpg" width="200" height="150" alt=""/>
+                            <img src="@{../img/imgProduct2.jpg}" width="200" height="150" alt=""/>
                             <h3>Plante verte</h3>
                             <p>Mise en ligne le : 14 décembre 2016</p>
                         </div>
                     </a>
                     <a href="#">
                         <div id="produit3" class="col-lg-4">
-                            <img src="../public/img/imgProduct3.jpg" width="200" height="150" alt=""/>
+                            <img src="@{../img/imgProduct3.jpg}" width="200" height="150" alt=""/>
                             <h3>Table</h3>
                             <p>Mise en ligne le : 12 décembre 2016</p>
                         </div>
                     </a>
                     <a href="#">
                         <div id="produit4" class="col-lg-4">
-                            <img src="../public/img/imgProduct5.jpg" width="200" height="150" alt=""/>
+                            <img src="@{../img/imgProduct5.jpg}" width="200" height="150" alt=""/>
                             <h3>Tableau</h3>
                             <p>Mise en ligne le : 12 décembre 2016</p>
                         </div>
                     </a>
                     <a href="#">
                         <div id="produit6" class="col-lg-4">
-                            <img src="../public/img/imgProduct4.jpg" width="200" height="150" alt=""/>
+                            <img src="@{../img/imgProduct4.jpg}" width="200" height="150" alt=""/>
                             <h3>Chaises</h3>
                             <p>Mise en ligne le : 11 décembre 2016</p>
                         </div>
                     </a>
                     <a href="#">
                         <div id="produit5" class="col-lg-4">
-                            <img src="../public/img/imgProduct6.jpg" width="200" height="150" alt=""/>
+                            <img src="@{../img/imgProduct6.jpg}" width="200" height="150" alt=""/>
                             <h3>Plante</h3>
                             <p>Mise en ligne le : 11 décembre 2016</p>
                         </div>
@@ -149,9 +151,6 @@
             </div>
         </div>
     </footer>
-
-<script type="text/javascript" src="../public/js/jquery-3.1.1.min.js"></script>
-<script type="text/javascript" src="../public/js/bootstrap.min.js"></script>
 
 </body>
 </html>

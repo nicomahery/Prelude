@@ -26,4 +26,9 @@ public class GeneralController {
 		return "view/research";
 	}
 	
+	@RequestMapping("/product")
+	public String product(){
+		return "view/product";
+	}
+	
 }

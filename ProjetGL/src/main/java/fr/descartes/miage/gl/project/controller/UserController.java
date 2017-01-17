@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import fr.descartes.miage.gl.project.dao.AddressRepository;
 import fr.descartes.miage.gl.project.dao.UserRepository;
 import fr.descartes.miage.gl.project.entities.Address;
+import fr.descartes.miage.gl.project.entities.Advertisement;
 import fr.descartes.miage.gl.project.entities.User;
 
 @Controller
@@ -106,5 +107,4 @@ public class UserController {
 		return "userSuccess";
 	};
 	
-
 }
