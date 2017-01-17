@@ -67,7 +67,7 @@
     <div class="row" id="loginDiv">
         <div class="col-lg-4" id="login">
             <h1>Se connecter</h1>
-            <form method="@{connect}" action="">
+            <form method="POST" action="@{connect}">
                 <label>Identifiant</label>
                 <input type="text" name="login" class="form-control"> </input>
                 <label>Mot de passe</label>
@@ -77,7 +77,7 @@
         </div>
         <div class="col-lg-offset-4 col-lg-4" id="registration">
             <h1>Toujours pas inscrit ?</h1>
-            <form method="@{subscribe}" action="">
+            <form method="POST" action="@{subscribe}">
                 <label>Nom</label>
                 <input type="text" name="name" class="form-control"></input>
                 <label>Prénom</label>
