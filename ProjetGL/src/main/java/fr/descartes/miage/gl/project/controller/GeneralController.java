@@ -20,4 +20,10 @@ public class GeneralController {
 	public String information(){
 		return "view/informations";
 	}
+	
+	@RequestMapping("/research")
+	public String research(){
+		return "view/research";
+	}
+	
 }
