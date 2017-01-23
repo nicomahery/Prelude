@@ -15,6 +15,7 @@ services:
       options:
         max-size: '50m'
     restart: on-failure:5
+    read_only: true
     cpu_shares: 128
     security_opt:
     - no-new-privileges
