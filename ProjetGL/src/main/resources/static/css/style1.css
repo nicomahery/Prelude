@@ -1,0 +1,242 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+.headAddAdvert {
+	height: 300px;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-image: url('../img/liv.jpg');
+	background-attachment: fixed;
+}
+.headModAdvert{
+	height: 300px;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-image: url('../img/modif.jpg');
+	background-attachment: fixed;
+}
+.headAfterCo {
+	height: 300px;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-image: url('../img/salon.jpg');
+	background-attachment: fixed;
+}
+
+.headInsc {
+	height: 300px;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-image: url('../img/insc.jpg');
+	background-attachment: fixed;
+}
+
+#contentAddAdvHead{	
+	Font-Weight: Bold;
+	font-size: 50px;
+	color: white;
+	text-shadow: 0.1em 0.1em 0.15em #333;
+	text-align: center;
+}
+
+.contentAfterConn {
+	Font-Weight: Bold;
+	font-size: 50px;
+	text-shadow: 0.1em 0.1em 0.20em #333;
+	text-align: center;
+	color: white;
+	opacity: 1;
+	display: inherit;
+	vertical-align: middle;
+}
+
+.a{
+	display : inblock;
+	height :130px;
+	
+}
+.aa{
+	display : inblock;
+	height :130px;
+	
+}
+h1{
+	vertical-align : middle;
+}
+.contentPanel {
+	padding-top: 50px;
+	padding-left: 90px;
+	max-width: 90%;
+}
+
+.control-label col-sm-2 {
+	text-align: left;
+}
+
+.butt {
+	padding-left: 160px;
+}
+
+.infoP {
+	text-align: center;
+	Font-Weight: Bold;
+	font-size: large;
+	margin-bottom: 50px;
+}
+
+#op {
+	text-align: center;
+}
+
+.infoPd {
+	margin-bottom: 25px;
+}
+
+.btn {
+	display: block;
+	margin: auto;
+}
+
+.consAnn {
+	height:400px;
+	width: 460px;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-image: url('../img/dons1.jpg');
+}
+
+
+.modifP, .AddAnn {
+	text-align: center;
+	display: table-cell;
+	vertical-align: middle;
+	height: 12.5em;
+}
+
+.modifP {
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-image: url('../img/insc.jpg');
+}
+
+.AddAnn {
+	background-position: center;
+	background-repeat: no-repeat;
+	background-image: url('../img/dons3.png');
+}
+
+p{
+	font-size: 25px;
+	text-shadow: 0.1em 0.1em 0.20em #333;
+	text-align: center;
+	color: white;
+	opacity: 1;
+	display: inherit;
+	margin-top: 200px;
+}
+h3 {
+	font-size: 25px;
+	text-align: center;
+	text-shadow: 0.1em 0.1em 0.20em #000;
+	color: white;
+	opacity: 1;
+	display: inherit;
+	margin-top: 20%;
+}
+
+.containCons {
+	font-size: 25px;
+	text-shadow: 0.1em 0.1em 0.20em #333;
+	color: white;
+	opacity: 1;
+	margin-top: 200px;
+	text-align: center;
+}
+
+h2 {
+	font-size: 25px;
+	text-align: center;
+	color: black;
+}
+.consAnn:before, .modifP:before, .AddAnn:before {
+	content: "";
+	opacity: 0;
+	display: block;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	background-color: white;
+	-moz-transition: all .3s linear;
+	-webkit-transition: all .3s linear;
+	-ms-transition: all .3s linear;
+	-o-transition: all .3s linear;
+	transition: all .3s linear;
+	opacity: 0;
+}
+
+.consAnn:hover:before, .modifP:hover:before, .AddAnn:hover:before {
+	opacity: 0.5;
+	background: rgba(38, 44, 38, 0.5);
+}
+.consAnn:hover,.modifP:hover{
+	background-size: 200% 150%;
+	text-color:"black";
+}
+
+.AddAnn:hover {
+	background-size: 100% 130%;
+}

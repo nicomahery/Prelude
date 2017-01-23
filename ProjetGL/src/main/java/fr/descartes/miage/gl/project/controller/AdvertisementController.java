@@ -106,7 +106,7 @@ public class AdvertisementController {
 		List<Category> listCategory = categoryRepository.findAll();
 		model.addAttribute("categories", listCategory);
 		//model.addAllAttributes("address", addressRepository.)
-		return "modifyAdvertisement";
+		return "view/modifyAdvertissement";
 	}
 	
 	@RequestMapping(value="/modifyAdvertisement", method=RequestMethod.POST)

@@ -31,4 +31,14 @@ public class GeneralController {
 		return "view/product";
 	}
 	
+	@RequestMapping("/addAdvert")
+	public String addAdvert(){
+		return "view/addAdvert";
+	}
+	
+	@RequestMapping("/modifyAdvert")
+	public String modifyAdvert(){
+		return "view/modifyAdvert";
+	}
+	
 }

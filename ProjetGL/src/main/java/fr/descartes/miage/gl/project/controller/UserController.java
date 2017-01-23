@@ -63,11 +63,11 @@ public class UserController {
 					session.setAttribute("userId", u.getId());
 					session.setAttribute("addressId", a.getId());					
 					session.setAttribute("userUsername", u.getUsername());
-					return "redirect:../";
+					return "view/back";
 				}
 			}
 		}
-		return "redirect:../";
+		return "eee";
 	}
 
 
