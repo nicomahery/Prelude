@@ -37,11 +37,11 @@ public class UserController {
 	public String subscribe(Model model,@Valid Address address,@Valid User user, BindingResult bindingResult){
 		System.out.println("Parameters: username:"+user.getPassword());
 		if(bindingResult.hasErrors())
-			return "userSubForm";
+			return "view/login";
 		addressRepository.save(address);
 		user.setAddress(address);
 		userRepository.save(user);
-		return "userSuccess";
+		return "view/back";
 	}
 
 	
