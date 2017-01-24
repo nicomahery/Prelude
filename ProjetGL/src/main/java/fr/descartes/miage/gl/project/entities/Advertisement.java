@@ -21,8 +21,6 @@ public class Advertisement {
 	private User owner;
 	private boolean sold;
 	@ManyToOne
-	private Photo photo;
-	@ManyToOne
 	private Address address;
 	
 	public Advertisement() {
@@ -92,7 +90,5 @@ public class Advertisement {
 	public void setSold(boolean sold) {
 		this.sold = sold;
 	}
-	
-	
-	
+
 }

@@ -43,14 +43,14 @@
 			
 			
 			<div class="panel-body">
-				<form th:action="@{createAdvertisement}" method="post">
+				<form th:action="@{createAdvertisement}" method="post" enctype="multipart/form-data">
 					<div class="form-group">
 						<label class="control-label">Titre de l'annonce</label>
-						<input class="form-control" type="text" name="title" />
+						<input class="form-control" type="text" name="title" th:value="${adv.title}"/>
 					</div>
 					<div class="form-group">
 						<label class="control-label">Description de l'annonce</label>
-						<input class="form-control" type="text" name="description"/>
+						<input class="form-control" type="text" name="description"  th:value="${adv.description}"/>
 					</div>
 					
 					<div class="form-group row">
@@ -61,6 +61,11 @@
      							        th:text="${category.name}"/>
    							 </select>
 					</div>
+					<div class="form-group">
+						<label class="control-label">Image de description</label>
+						<input type="file" name="file"/>
+					</div>
+					
 					<div class="form-group">
 						<label class="control-label">Adresse</label>
 						<input class="form-control" type="text" name="street" th:value="${address.street}"/>
@@ -86,23 +91,8 @@
 				</form>
 			</div>
 		</div>
+		<img th:src="@{advertisement/photoSearch?imageId=1}" />
 	</div>
 	
-					<div>
-						<form method="POST" enctype="multipart/form-data" action="/">
-						<table>
-							<tr><td>File to upload:</td><td><input type="file" name="file" /></td></tr>
-							<tr><td></td><td><input type="submit" value="Upload" /></td></tr>
-						</table>
-					</form>
-					</div>
-
-					<div>
-						<ul>
-							<li th:each="file : ${files}">
-								<a th:href="${file}" th:text="${file}" />
-							</li>
-						</ul>
-					</div>
 </body>
 </html>
