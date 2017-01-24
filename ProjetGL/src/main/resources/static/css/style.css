@@ -311,3 +311,43 @@ footer a:hover {
     text-decoration: none;
     background-color: whitesmoke;
 }
+
+
+
+#form h1 {
+    border: 2px solid black;
+    border-radius: 5px;
+    background-color: whitesmoke;
+    text-align: center;
+    font-size: 30px;
+    padding: 10px 0px 10px 0px;
+    margin-bottom: 0px;
+}
+
+#infoProduct {
+    border: 2px solid black;
+    border-radius: 5px;
+    padding: 15px 15px;
+    margin-top : -2px;
+}
+
+#infoAddress {
+    border: 2px solid black;
+    border-radius: 5px;
+    padding: 15px 15px;
+    margin-top : -2px;
+}
+
+.btnStyle {
+    background-color: white;
+    color: black;
+    padding: 10px 20px;
+    border: 2px solid black;
+    margin-top: 20px;
+    margin-left: 45%;
+}
+
+.btnStyle:hover {
+    text-decoration: none;
+    background-color: whitesmoke;
+}
