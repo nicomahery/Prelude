@@ -1,11 +1,4 @@
 
-$('.modifP').hover(function() {
-	$('#mod').css('color', "#808080");
-},function() {
-$('#mod').css('color', 'white');
-});
-
-
 $('.AddAnn').hover(function() {
 	$(".containIniAdd").hide();
 	$(".containAnn").show();
@@ -22,10 +15,20 @@ $('.consAnn').hover(function() {
 	$(".containVis").hide();
 });
 
+$('.modifP').hover(function() {
+	$(".modP").hide();
+	$(".modiP").show();
+},function() {
+	$(".modP").show();
+	$(".modiP").hide();
+});
+
 $(function() 
 {
   $(".containVis").hide();
-  $(".containVis").append( "<p> <font color='#00001a'> <b>Découvrir toutes les annonces en France</b></font> </p>" );
+  $(".containVis").append( "<h3>Découvrir toutes les annonces en France</h3>" );
   $(".containAnn").hide();
-  $(".containAnn").append( "<h3> <font color='#00001a'> <b>Ajouter une annonce</b></font> </h3>" );
+  $(".containAnn").append( "<h3>Ajouter une annonce</h3>" );
+  $(".modiP").hide();
+  $(".modiP").append("<h3>Présentez vous</h3>");
 });

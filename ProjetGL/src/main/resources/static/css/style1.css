@@ -1,5 +1,3 @@
-
-
 .headAddAdvert {
 	height: 300px;
 	background-position: center;
@@ -53,23 +51,13 @@
 	vertical-align: middle;
 }
 
-.a{
-	display : inblock;
-	height :130px;
-	
-}
-.aa{
-	display : inblock;
-	height :130px;
-	
-}
-
 #buttonForm {
 	margin-top : 70px;
 }
 
 h1{
 	vertical-align : middle;
+	text-align: center;
 }
 .contentPanel {
 	padding-top: 50px;
@@ -137,13 +125,8 @@ h1{
 }
 
 p{
-	font-size: 25px;
-	text-shadow: 0.1em 0.1em 0.20em #333;
-	text-align: center;
-	color: white;
-	opacity: 1;
+	font-size: 17px;
 	display: inherit;
-	margin-top: 200px;
 }
 h3 {
 	font-size: 25px;
@@ -162,6 +145,10 @@ h3 {
 	opacity: 1;
 	margin-top: 200px;
 	text-align: center;
+}
+
+.containVis {
+	margin-top: 200px;	
 }
 
 h2 {
