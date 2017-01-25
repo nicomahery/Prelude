@@ -63,16 +63,17 @@
         <div class="col-lg-12" id="infoProduct">
             <div class="row">
                 <div class="col-lg-6 fotorama" data-nav="thumbs" data-loop="true" id="picture">
-                    <img th:src="@{../img/imgProduct.jpg}" width="" height="" alt=""/> <!-- Les images du produits -->
-                    <img th:src="@{../img/canape.jpg}" width="" height="" alt=""/> <!-- Les images du produits -->
+                    <img th:each="photo : ${photos}"
+                    th:src="@{'photoSearch/' +${photo}}" width="" height="" alt=""/> <!-- Les images du produits -->
                 </div>
                 <div class="col-lg-6">
-                    <h1>Canapé</h1>
-                    <p><img th:src="@{../img/date.jpg}" width="25" height="25" alt=""/>Mise en ligne le : 15 décembre 2016</p>
-                    <p><img th:src="@{../img/iconConnexion.png}" width="25" height="25" alt=""/>Par : Caroline Pégart</p>
-                    <p><img th:src="@{../img/phone.png}" width="25" height="25" alt=""/>Téléphone : 06 29 47 43 24</p>
-                    <p><img th:src="@{../img/place.png}" width="25" height="25" alt=""/>Adresse : 4 rue Edgar Degas, 78360, Montesson</p>
+                    <h1 th:text="${adv.title}">Canapé</h1>
+                    <p th:text="${'Mise en ligne le : ' + adv.date}"><img th:src="@{../img/date.jpg}" width="25" height="25" alt=""/>Mise en ligne le : 15 décembre 2016</p>
+                    <p th:text="${'Par : ' + advOwn.username}"><img th:src="@{../img/iconConnexion.png}" width="25" height="25" alt=""/>Par : Caroline Pégart</p>
+                    <p th:text="${'Téléphone : ' + advOwn.phoneNumber}"><img th:src="@{../img/phone.png}" width="25" height="25" alt=""/>Téléphone : 06 29 47 43 24</p>
+                    <p th:text="${'Adresse : ' + advAdd.street + ', ' + advAdd.zip + ', ' + advAdd.city}"><img th:src="@{../img/place.png}" width="25" height="25" alt=""/>Adresse : 4 rue Edgar Degas, 78360, Montesson</p>
                 </div>
+                
             </div>
         </div>
     </div>
@@ -85,12 +86,12 @@
         </ul>
         <div id="myTabContent" class="tab-content">
             <div id="description" role="tabpanel" class="tab-pane fade in active">
-                <p>Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua, retro synth master cleanse. Mustache cliche tempor, williamsburg carles vegan helvetica. Reprehenderit butcher retro keffiyeh dreamcatcher synth. Cosby sweater eu banh mi, qui irure terry richardson ex squid. Aliquip placeat salvia cillum iphone. Seitan aliquip quis cardigan american apparel, butcher voluptate nisi qui.</p>
+                <p th:text="${adv.description}">Desciption</p>
             </div>
             <div id="infoAddress" role="tabpanel" class="tab-pane fade">
                 <div id="blocMap"></div>
                 <div id="infoMap">
-                    <p><img th:src="@{../img/place.png}" width="25" height="25" alt=""/>Adresse : 4 rue Edgar Degas, 78360, Montesson</p>
+                    <p th:text="${'Adresse : ' + advAdd.street + ', ' + advAdd.zip + ', ' + advAdd.city}"><img th:src="@{../img/place.png}" width="25" height="25" alt=""/>Adresse : 4 rue Edgar Degas, 78360, Montesson</p>
                     <div class="text-center">
                         <h3>Se rendre à l'adresse </h3>
                         <label>Entrez votre adresse de départ :</label>

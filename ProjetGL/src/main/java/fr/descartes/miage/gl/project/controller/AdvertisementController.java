@@ -2,11 +2,13 @@ package fr.descartes.miage.gl.project.controller;
 
 import java.io.IOException;
 import java.sql.Timestamp;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
+import org.apache.tomcat.util.codec.binary.Base64;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -20,6 +22,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
 import fr.descartes.miage.gl.project.dao.AddressRepository;
@@ -100,13 +103,15 @@ public class AdvertisementController {
 		return "advertisementSuccess";
 	}
 	
-	@RequestMapping(value="/photoSearch", method=RequestMethod.GET)
-	public ResponseEntity<byte[]> getImage(@RequestParam("imageId") Long imageId){
+	@RequestMapping(value="/photoSearch/{imageId}", method=RequestMethod.GET)
+	@ResponseBody
+	public ResponseEntity<byte[]> getImage(@PathVariable("imageId") Long imageId){
 		byte[] imageContent = photoRepository.findOne(imageId).getData();
 		final HttpHeaders headers = new HttpHeaders();
 		headers.setContentType(MediaType.IMAGE_PNG);
 		return new ResponseEntity<byte[]>(imageContent, headers, HttpStatus.OK);
 	}
+	
 	
 	@RequestMapping(value="/userAdvertisementsPage", method=RequestMethod.GET)
 	public String userAdvertisements(Model model, HttpSession session){
@@ -129,6 +134,23 @@ public class AdvertisementController {
 		return "view/modifyAdvertissement";
 	}
 	
+	@RequestMapping(value="/getAdvertisement", method=RequestMethod.GET)
+	public String getAdvertisement(Model model, @RequestParam("id") Long id){
+		Advertisement adv = advertisementRepository.findOne(id);
+		model.addAttribute("adv", adv);
+		model.addAttribute("advAdd", adv.getAddress());
+		model.addAttribute("advOwn", adv.getOwner());
+		model.addAttribute("photos", this.getAllImage(adv));
+		return "view/product";
+	}
+	
+	public List<Long> getAllImage(Advertisement adv){
+		List<Long> res = new ArrayList<Long>();
+		for(Photo p: photoRepository.findByAdvertisement(adv))
+			res.add(p.getId());
+		return res;
+	}
+	
 	@RequestMapping(value="/modifyAdvertisement", method=RequestMethod.POST)
 	public String modifyAdvetisement(Model model,@RequestParam("advertisementId") String advertisementId, @Valid Address address, @RequestParam("categories") String category, @RequestParam("title") String title ,@RequestParam("description") String description, HttpSession session){
 		Advertisement advertisement = advertisementRepository.findOne(Long.valueOf(advertisementId));
@@ -142,23 +164,8 @@ public class AdvertisementController {
 			&&  address.getZip().equals(advertisement.getAddress().getZip())) 
 			;
 		else{
-			/*List<Address> listAd = addressRepository.findAll();
-			boolean find = false;
-			long idAdFind=0;
-			for ( int i =0; i< listAd.size(); ++i)
-				if (   listAd.get(i).getCity().equals(address.getCity())
-					&& listAd.get(i).getCountry().equals(address.getCountry())	
-					&& listAd.get(i).getStreet().equals(address.getStreet())	
-					&& listAd.get(i).getZip().equals(address.getZip())){
-					find=true;
-					idAdFind=listAd.get(i).getId();
-				}
-			if (find)
-				advertisement.setAddress(addressRepository.findOne(idAdFind));
-			else{*/
 				addressRepository.save(address);	
 			    advertisement.setAddress(address);
-			  // }
 		}
 		advertisementRepository.save(advertisement);
 		model.addAttribute("advertisement", advertisement);
