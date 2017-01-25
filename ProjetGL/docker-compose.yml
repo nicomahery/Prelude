@@ -1,25 +1,6 @@
 version: '2'
 
 services:
-  spring:
-    image: annonce
-    command: -Xmx512M -XX:MaxPermSize=384M -XX:+CMSClassUnloadingEnabled --spring.datasource.url=jdbc:mysql://db:3306/annonce
-    labels:
-      traefik.frontend.passHostHeader: 'true'
-      traefik.frontend.rule: 'Host: annonce.l3miage.fr'
-      traefik.port: '8088'
-    links:
-    - db
-    logging:
-      driver: json-file
-      options:
-        max-size: '50m'
-    restart: on-failure:5
-    read_only: true
-    cpu_shares: 128
-    security_opt:
-    - no-new-privileges
-
   db:
     image: vibioh/mysql
     environment:
@@ -33,6 +14,26 @@ services:
     read_only: true
     cpu_shares: 128
     mem_limit: 134217728
+    security_opt:
+    - no-new-privileges
+
+  spring:
+    image: vibioh/annonce
+    command: --spring.datasource.url=jdbc:mysql://db:3306/annonce
+    labels:
+      traefik.frontend.passHostHeader: 'true'
+      traefik.frontend.rule: 'Host: annonce.l3miage.fr'
+      traefik.port: '8088'
+    links:
+    - db
+    logging:
+      driver: json-file
+      options:
+        max-size: '50m'
+    restart: on-failure:5
+    read_only: true
+    cpu_shares: 128
+    mem_limit: 805306368
     security_opt:
     - no-new-privileges
 
