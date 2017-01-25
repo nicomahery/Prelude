@@ -63,37 +63,40 @@
             </div>
         </div>
     </div>
-	<div class="container">
-
-		<div class="contentPanel">
-
-			<div class="panel-body">
-				<div class="row">
-					<a th:href="@{/research}">
-					<div class="consAnn col-sm-6">
-						<div class="containCons">Consulter les annonces</div>
-						<div class="containVis"></div>
-					</div>
-					</a>
-					<a th:href="@{/addAdvert}">
-						<div class="AddAnn col-sm-6">
-							<div class="containIniAdd">
-								<h3>Je donne !</h3>
-							</div>
-							<div class="containAnn"></div>
-						</div>
-					</a>
-					<a th:href="@{/modifyProfil}">
-					<div class="modifP col-sm-6">
-						<h3 id="mod">
-							Modifier le profil
-						</h3>
-					</div>
-					</a>
+    <div class="container">
+    	<div class="row">
+    		<h1>Ajouter une annonce</h1>
+    		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras ac pulvinar quam. Ut mattis elementum felis, eget facilisis nunc ultricies vitae. Integer porta justo quis nisl faucibus, eu fringilla magna egestas. Etiam congue condimentum leo, et varius erat vulputate ac. Proin sit amet justo malesuada, consectetur lectus id, pretium quam. Ut rhoncus, quam sed volutpat dapibus, ex risus eleifend elit, vitae maximus lacus neque a diam. In dapibus enim ut magna tempor, nec rhoncus odio rutrum. </p>
+    	</div>
+    </div>
+    <div id="buttonForm" class="container-fluid">
+    	<div class="row">
+    		<a th:href="@{/research}">
+				<div class="consAnn col-lg-6">
+					<div class="containCons">Consulter les annonces</div>
+					<div class="containVis"></div>
 				</div>
-			</div>
-		</div>
-
+			</a>
+			<a th:href="@{/addAdvert}">
+				<div class="AddAnn col-lg-6">
+					<div class="containIniAdd">
+						<h3>Je donne !</h3>
+					</div>
+					<div class="containAnn"></div>
+				</div>
+			</a>
+			<a th:href="@{/modifyProfil}">
+				<div class="modifP col-lg-6">
+					<h3 id="mod">
+						Modifier le profil
+					</h3>
+				</div>
+			</a>
+    	</div>
+    </div>
+    
+    
+	
 		<footer>
         <div class="container">
             <div class="row">
@@ -118,7 +121,7 @@
         </div>
     </footer>
 
-	</div>
+
 	<script type="text/javascript"
 		src="http://code.jquery.com/jquery-1.12.3.min.js"></script>
 	<script type="text/javascript" th:src="@{../js/gl.js}"></script>
