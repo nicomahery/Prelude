@@ -113,7 +113,6 @@ public class AdvertisementController {
 		return new ResponseEntity<byte[]>(imageContent, headers, HttpStatus.OK);
 	}
 	
-	
 	@RequestMapping(value="/userAdvertisementsPage", method=RequestMethod.GET)
 	public String userAdvertisements(Model model, HttpSession session){
 		User user = userRepository.findOne((Long)session.getAttribute("userId"));
@@ -160,6 +159,9 @@ public class AdvertisementController {
 		model.addAttribute("advlist", advFinal);
 		return "view/research";
 	}
+	
+
+	
 	public List<Long> getAllImage(Advertisement adv){
 		List<Long> res = new ArrayList<Long>();
 		for(Photo p: photoRepository.findByAdvertisement(adv))
