@@ -63,60 +63,66 @@
 	</div>
 	<div class="container">
 		<div class="row" id="loginDiv">
-			<div class="col-lg-4" id="login">
-				<h1>Se connecter</h1>
+			<div class="col-lg-4">
 				<form method="POST" th:action="@{connect}">
-					<label>Identifiant</label> <input type="text" name="username"
-						class="form-control"> </input> <label>Mot de passe</label> <input
-						type="password" name="password" class="form-control"> </input> <input
-						type="submit"> </input>
+					<h1>Se connecter</h1>
+					<div class="formInfos">
+						<label>Identifiant</label>
+						<input type="text" name="username" class="form-control"/>
+						<label>Mot de passe</label>
+						<input type="password" name="password" class="form-control"/>
+						<input class="btnStyle" type="submit"/>
+					</div>
 				</form>
 			</div>
-			<div class="col-lg-offset-4 col-lg-4" id="registration">
-				<h1>Toujours pas inscrit ?</h1>
+			<div class="col-lg-offset-4 col-lg-4">
+				
 				<form method="POST" th:action="@{subscribe}"
 					onSubmit="return validation(this)">
-					<label>Nom</label> 
-					<input type="text" name="lastName" class="form-control" th:value="${user.lastName}"/>
-					<span th:errors="${user.lastName}"></span> 
-					<label>Prénom</label> 
-					<input type="text" name="firstName" class="form-control" th:value="${user.firstName}"/>
-					<span th:if="${user.firstName != null}"></span> 
-					<label>Adresse email</label> 
-					<input type="text" name="mailAddress" class="form-control" th:value="${user.mailAddress}"/> 
-					<label>Mot de passe</label> 
-					<input type="password" name="mdp1" class="form-control"/>
-					<label>Confirmation du mot de passe</label> 
-					<input type="password" name="password" class="form-control"/> 
-					<span th:errors="${user.password}"></span>
-					<label>Numero de telephone</label> 
-					<input type="text" id="phoneNumber" name="phoneNumber"
-						th:value="${user.phoneNumber}" class="form-control"/> 
-					<label>Pseudo</label>
-					<input type="text" id="username" name="username"
-						th:value="${user.username}" class="form-control"/> 
-					<span th:errors="${user.username}"></span> 
-					<label>Adresse</label> 
-					<input type="text" id="address" name="street" class="form-control"
-						th:value="${address.street}"/>
-					<span th:errors="${address.street}"></span> 
-					<label>Région</label> 
-					<input type="text" id="state" name="state" class="form-control"
-						th:value="${address.state}"/> 
-					<span th:errors="${address.state}"></span>
-					<label>Ville</label>
-					<input type="text" id="city" name="city" class="form-control"
-						th:value="${address.city}"/> 
-					<span th:errors="${address.city}"></span>
-					<label>Code postal</label> 
-					<input type="text" id="zip" name="zip" class="form-control"
-						th:value="${address.zip}"/> 
-					<span th:errors="${address.zip}"></span>
-					<label>Pays</label> 
-					<input type="text" id="country" name="country" class="form-control"
-						th:value="${address.country}"/> 
-					<span th:errors="${address.country}"></span> 
-					<input type="submit"></input>
+					<h1>Toujours pas inscrit ?</h1>
+					<div class="formInfos">
+						<label>Nom</label> 
+						<input type="text" name="lastName" class="form-control" th:value="${user.lastName}"/>
+						<span th:errors="${user.lastName}"></span> 
+						<label>Prénom</label> 
+						<input type="text" name="firstName" class="form-control" th:value="${user.firstName}"/>
+						<span th:if="${user.firstName != null}"></span> 
+						<label>Adresse email</label> 
+						<input type="text" name="mailAddress" class="form-control" th:value="${user.mailAddress}"/> 
+						<label>Mot de passe</label> 
+						<input type="password" name="mdp1" class="form-control"/>
+						<label>Confirmation du mot de passe</label> 
+						<input type="password" name="password" class="form-control"/> 
+						<span th:errors="${user.password}"></span>
+						<label>Numero de telephone</label> 
+						<input type="text" id="phoneNumber" name="phoneNumber"
+							th:value="${user.phoneNumber}" class="form-control"/> 
+						<label>Pseudo</label>
+						<input type="text" id="username" name="username"
+							th:value="${user.username}" class="form-control"/> 
+						<span th:errors="${user.username}"></span> 
+						<label>Adresse</label> 
+						<input type="text" id="address" name="street" class="form-control"
+							th:value="${address.street}"/>
+						<span th:errors="${address.street}"></span> 
+						<label>Région</label> 
+						<input type="text" id="state" name="state" class="form-control"
+							th:value="${address.state}"/> 
+						<span th:errors="${address.state}"></span>
+						<label>Ville</label>
+						<input type="text" id="city" name="city" class="form-control"
+							th:value="${address.city}"/> 
+						<span th:errors="${address.city}"></span>
+						<label>Code postal</label> 
+						<input type="text" id="zip" name="zip" class="form-control"
+							th:value="${address.zip}"/> 
+						<span th:errors="${address.zip}"></span>
+						<label>Pays</label> 
+						<input type="text" id="country" name="country" class="form-control"
+							th:value="${address.country}"/> 
+						<span th:errors="${address.country}"></span> 
+						<input type="submit"></input>
+					</div>
 				</form>
 			</div>
 		</div>
