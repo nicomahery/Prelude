@@ -64,7 +64,7 @@
             <div class="row">
                 <div class="col-lg-6 fotorama" data-nav="thumbs" data-loop="true" id="picture">
                     <img th:each="photo : ${photos}"
-                    th:src="@{'s' +${photo}}" width="" height="" alt=""/> <!-- Les images du produits -->
+                    th:src="@{'photoSearch/' +${photo}}" width="" height="" alt=""/> <!-- Les images du produits -->
                 </div>
                 <div class="col-lg-6">
                     <h1 th:text="${adv.title}">Canapé</h1>

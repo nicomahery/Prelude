@@ -53,7 +53,7 @@
             <div id="contentHeadband" class=" col-lg-2 col-lg-offset-5">
                 <h1>Informations générales</h1>
                 <form method="" action="" class="text-center">
-                    <input type="text" class="form-control"/><br/>
+                    <input type="text" class="form-control" id="researchTxt"/><br/>
                     <input type="submit" id="submit" value="Rechercher"/>
                 </form>
             </div>
@@ -67,11 +67,11 @@
             <div class="row">
                 <div class="col-lg-12" id="listProducts">
                     <h1 class="text-center">Produits</h1>
-                    <a th:each="adv : ${advlist}" th:href="@{'/getAdvertisement?id='+${adv.id}}">
+                    <a th:each="adv : ${advlist}" th:href="@{'/advertisement/getAdvertisement?id='+${adv.value.id}}">
                         <div id="produit1" class="col-lg-4">
-                            <img th:src="@{../img/imgProduct.jpg}" width="200" height="150" alt=""></img>
-                            <h3>Canapé</h3>
-                            <p>Mise en ligne le : 15 décembre 2016</p>
+                            <img th:src="@{'photoSearch/' +${adv.key}}" width="200" height="150" alt=""></img>
+                            <h3 th:text="${adv.value.title}"> </h3>
+                            <p th:text="${adv.value.description}"> </p>
                         </div>
                     </a>
                 </div>

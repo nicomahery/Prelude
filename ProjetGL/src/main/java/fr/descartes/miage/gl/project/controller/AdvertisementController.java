@@ -3,6 +3,7 @@ package fr.descartes.miage.gl.project.controller;
 import java.io.IOException;
 import java.sql.Timestamp;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -147,20 +148,30 @@ public class AdvertisementController {
 	@RequestMapping(value="/research", method=RequestMethod.POST)
 	public String research(Model model, @RequestParam("researchTxt") String titleReseach){
 		List<Advertisement> adv = advertisementRepository.findAll();
-		List<Advertisement> advFinal= new ArrayList <Advertisement>();
+		HashMap<Long,Advertisement> advFinal= new HashMap <Long, Advertisement>();
+		
+		List <Long>listImg= new ArrayList <Long>();
+		
 		for(Advertisement a : adv){
 			if(a.getTitle().contains(titleReseach)){
-				advFinal.add(a);
+				advFinal.put(this.getOneImage(a), a);
 			}
 		}
 		model.addAttribute("advlist", advFinal);
-		return "view/product";
+		return "view/research";
 	}
 	public List<Long> getAllImage(Advertisement adv){
 		List<Long> res = new ArrayList<Long>();
 		for(Photo p: photoRepository.findByAdvertisement(adv))
 			res.add(p.getId());
 		return res;
+	}
+	
+	public long getOneImage(Advertisement adv){
+		List<Long> res = new ArrayList<Long>();
+		for(Photo p: photoRepository.findByAdvertisement(adv))
+			res.add(p.getId());
+		return res.get(0);
 	}
 	
 	@RequestMapping(value="/modifyAdvertisement", method=RequestMethod.POST)
