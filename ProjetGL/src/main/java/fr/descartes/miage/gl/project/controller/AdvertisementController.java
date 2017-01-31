@@ -160,7 +160,21 @@ public class AdvertisementController {
 		return "view/research";
 	}
 	
-
+	@RequestMapping(value="/researchCat", method=RequestMethod.POST)
+	public String researchCat(Model model, @RequestParam("researchCat") String nameCat){
+		List<Advertisement> advCat = advertisementRepository.findAll();
+		HashMap<Long,Advertisement> advFinal= new HashMap <Long, Advertisement>();
+		
+		List <Long>listImg= new ArrayList <Long>();
+		
+		for(Advertisement a : advCat){
+			if(a.getCategory().getName().contains(nameCat)){
+				advFinal.put(this.getOneImage(a), a);
+			}
+		}
+		model.addAttribute("advlist", advFinal);
+		return "view/research";
+	}
 	
 	public List<Long> getAllImage(Advertisement adv){
 		List<Long> res = new ArrayList<Long>();
