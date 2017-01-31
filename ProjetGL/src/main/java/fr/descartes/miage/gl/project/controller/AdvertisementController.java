@@ -113,7 +113,6 @@ public class AdvertisementController {
 		return new ResponseEntity<byte[]>(imageContent, headers, HttpStatus.OK);
 	}
 	
-	
 	@RequestMapping(value="/userAdvertisementsPage", method=RequestMethod.GET)
 	public String userAdvertisements(Model model, HttpSession session){
 		User user = userRepository.findOne((Long)session.getAttribute("userId"));
@@ -174,6 +173,22 @@ public class AdvertisementController {
 		model.addAttribute("advlist", advFinal);
 		return "view/research";
 	}
+			
+	@RequestMapping(value="/researchCat", method=RequestMethod.POST)
+	public String researchCat(Model model, @RequestParam("researchCat") String nameCat){
+		List<Advertisement> advCat = advertisementRepository.findAll();
+		HashMap<Long,Advertisement> advFinal= new HashMap <Long, Advertisement>();
+		
+		List <Long>listImg= new ArrayList <Long>();
+		
+		for(Advertisement a : advCat){
+			if(a.getCategory().getName().contains(nameCat)){
+				advFinal.put(this.getOneImage(a), a);
+			}
+		}
+		model.addAttribute("advlist", advFinal);
+		return "view/research";
+	}
 	
 	public List<Long> getAllImage(Advertisement adv){
 		List<Long> res = new ArrayList<Long>();
@@ -191,7 +206,7 @@ public class AdvertisementController {
 		return 0;
 	}
 	
-	@RequestMapping(value="/modifyAdvertisement", method=RequestMethod.POST)
+	@RequestMapping(value="/modifyAdvertisement", method=RequestMethod.GET)
 	public String modifyAdvetisement(Model model,@RequestParam("advertisementId") String advertisementId, @Valid Address address, @RequestParam("categories") String category, @RequestParam("title") String title ,@RequestParam("description") String description, HttpSession session){
 		Advertisement advertisement = advertisementRepository.findOne(Long.valueOf(advertisementId));
 		advertisement.setTitle(title);
