@@ -76,38 +76,47 @@
 				<h1>Toujours pas inscrit ?</h1>
 				<form method="POST" th:action="@{subscribe}"
 					onSubmit="return validation(this)">
-					<label>Nom</label> <input type="text" name="lastName"
-						class="form-control" th:value="${user.lastName}"></input> <span
-						th:errors="${user.lastName}"></span> <label>Prénom</label> <input
-						type="text" name="firstName" class="form-control"
-						th:value="${user.firstName}"></input> <span
-						th:if="${user.firstName != null}"></span> <label>Adresse
-						email</label> <input type="text" name="mailAddress" class="form-control"
-						th:value="${user.mailAddress}"></input> <label>Mot de
-						passe</label> <input type="password" name="mdp1" class="form-control"></input>
-					<label>Confirmation du mot de passe</label> <input type="password"
-						name="password" class="form-control"></input> <span
-						th:errors="${user.password}"></span> <label>Numero de
-						telephone</label> <input type="text" id="phoneNumber" name="phoneNumber"
-						th:value="${user.phoneNumber}" class="form-control"></input> <label>Pseudo</label>
+					<label>Nom</label> 
+					<input type="text" name="lastName" class="form-control" th:value="${user.lastName}"/>
+					<span th:errors="${user.lastName}"></span> 
+					<label>Prénom</label> 
+					<input type="text" name="firstName" class="form-control" th:value="${user.firstName}"/>
+					<span th:if="${user.firstName != null}"></span> 
+					<label>Adresse email</label> 
+					<input type="text" name="mailAddress" class="form-control" th:value="${user.mailAddress}"/> 
+					<label>Mot de passe</label> 
+					<input type="password" name="mdp1" class="form-control"/>
+					<label>Confirmation du mot de passe</label> 
+					<input type="password" name="password" class="form-control"/> 
+					<span th:errors="${user.password}"></span>
+					<label>Numero de telephone</label> 
+					<input type="text" id="phoneNumber" name="phoneNumber"
+						th:value="${user.phoneNumber}" class="form-control"/> 
+					<label>Pseudo</label>
 					<input type="text" id="username" name="username"
-						th:value="${user.username}" class="form-control"></input> <span
-						th:errors="${user.username}"></span> <label>Adresse</label> <input
-						type="text" id="address" name="street" class="form-control"
-						th:value="${address.street}"></input> <span
-						th:errors="${address.street}"></span> <label>Région</label> <input
-						type="text" id="state" name="state" class="form-control"
-						th:value="${address.state}"></input> <span
-						th:errors="${address.state}"></span> <label>Ville</label> <input
-						type="text" id="city" name="city" class="form-control"
-						th:value="${address.city}"></input> <span
-						th:errors="${address.city}"></span> <label>Code postal</label> <input
-						type="text" id="zip" name="zip" class="form-control"
-						th:value="${address.zip}"></input> <span
-						th:errors="${address.zip}"></span> <label>Pays</label> <input
-						type="text" id="country" name="country" class="form-control"
-						th:value="${address.country}"></input> <span
-						th:errors="${address.country}"></span> <input type="submit"></input>
+						th:value="${user.username}" class="form-control"/> 
+					<span th:errors="${user.username}"></span> 
+					<label>Adresse</label> 
+					<input type="text" id="address" name="street" class="form-control"
+						th:value="${address.street}"/>
+					<span th:errors="${address.street}"></span> 
+					<label>Région</label> 
+					<input type="text" id="state" name="state" class="form-control"
+						th:value="${address.state}"/> 
+					<span th:errors="${address.state}"></span>
+					<label>Ville</label>
+					<input type="text" id="city" name="city" class="form-control"
+						th:value="${address.city}"/> 
+					<span th:errors="${address.city}"></span>
+					<label>Code postal</label> 
+					<input type="text" id="zip" name="zip" class="form-control"
+						th:value="${address.zip}"/> 
+					<span th:errors="${address.zip}"></span>
+					<label>Pays</label> 
+					<input type="text" id="country" name="country" class="form-control"
+						th:value="${address.country}"/> 
+					<span th:errors="${address.country}"></span> 
+					<input type="submit"></input>
 				</form>
 			</div>
 		</div>
@@ -141,12 +150,13 @@
 
 	<script type="text/javascript" th:src="@{../js/jquery-3.1.1.min.js}"></script>
 	<script type="text/javascript" th:src="@{../js/bootstrap.min.js}"></script>
-	<script type="text/javascript" th:src="@{../js/google.js}"></script>
+	<!--  <script type="text/javascript" th:src="@{../js/google.js}"></script> -->
+	<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?libraries=places&amp;key=AIzaSyBCWvxUBIaoWR7n4ioVQHFloYNQAaM9Tf4"></script>
 	<script type="text/javascript">
     var input = document.getElementById('address');
     autocomplete = new google.maps.places.Autocomplete(input);
 	</script>
-	<script language="JavaScript">
+	<script type="text/javascript">
 	function validation(f) {
 	if (f.mdp1.value != f.password.value) {
 	    alert('Vous avez entrer des mots de passe différents !');
@@ -160,7 +170,41 @@
 	    f.mdp1.focus();
 	    return false;
 	    }
-	  }
+	 }
+	
+	 //var input = document.getElementById('address');
+    //autocomplete = new google.maps.places.Autocomplete(input);
+
+    google.maps.event.addDomListener(window, 'load', function() {
+        initializeAutocompleteAddress('address');
+    });
+
+
+    function initializeAutocompleteAddress(id) {
+        var element = document.getElementById(id);
+        if (element) {
+            var autocomplete = new google.maps.places.Autocomplete(element, { types: ['geocode'] });
+            google.maps.event.addListener(autocomplete, 'place_changed', onPlaceChangedAddress);
+        }
+    }
+
+    function onPlaceChangedAddress() {
+        var place = this.getPlace();
+        var address = document.getElementById("address");
+        console.log(place);  // Uncomment this line to view the full object returned by Google API.
+
+        var idElement = ['state','city','zip','country'];
+        var component = place.address_components;
+        var tab = ['4','2','6','5'];
+        for (var i in idElement) {
+            var type_element = document.getElementById(idElement[i]);
+            if(type_element){
+                type_element.value = component[tab[i]].long_name;
+                $('#registration').val(place.name);
+            }
+        }
+        address.value = component[0].long_name + ' ' + component[1].long_name;
+    }
 	</script>
 </body>
 </html>

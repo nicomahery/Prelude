@@ -10,6 +10,7 @@ header {
     height : 70px;
 }
 
+
 .navbar {
     margin-bottom: 0px;
 }
@@ -332,6 +333,13 @@ footer a:hover {
 }
 
 #formAddress {
+    border: 2px solid black;
+    border-radius: 5px;
+    padding: 15px 15px;
+    margin-top : -2px;
+}
+
+#formUser {
     border: 2px solid black;
     border-radius: 5px;
     padding: 15px 15px;

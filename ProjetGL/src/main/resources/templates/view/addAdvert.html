@@ -7,7 +7,6 @@
 <link rel="stylesheet" type="text/css"	th:href="@{../css/bootstrap.min.css}" />
 <link rel="stylesheet" type="text/css" th:href="@{../css/style.css}" />
 
-
 </head>
 <body>
 <header>
@@ -38,8 +37,10 @@
                     </nav>
                 </div>
                 <div id="connection" class="col-lg-3">
-                    <a th:href="@{/user/subscribePage}"><img th:src="@{../img/iconConnexion.png}" width="25" height="25" alt=""/>
+                    <a th:if="${session.userId} == null" th:href="@{/user/subscribePage}"><img th:src="@{../img/iconConnexion.png}" width="25" height="25" alt=""/>
                         Se connecter - S'inscrire</a>
+                    <a th:if="${session.userId} != null" th:href="@{/back}"><img th:src="@{../img/iconConnexion.png}" width="25" height="25" alt=""/>
+                        Mon compte</a>
                 </div>
             </div>
         </div>
@@ -47,67 +48,71 @@
 
 </header>
 <div class="container-fluid">
-        <div class="row">
-            <div id="headband">
-                <div id="contentHeadband" class=" col-lg-2 col-lg-offset-5">
-                    <h1>Ajouter une annonce</h1>
-                    <form method="" action="" class="text-center">
-                        <input type="text" class="form-control"/><br/>
-                        <input type="submit" id="submit" value="Rechercher"/>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
+   <div class="row">
+       <div id="headband">
+           <div id="contentHeadband" class=" col-lg-2 col-lg-offset-5">
+               <h1>Ajouter une annonce</h1>
+               <form method="" action="" class="text-center">
+                   <input type="text" class="form-control"/><br/>
+                   <input type="submit" id="submit" value="Rechercher"/>
+               </form>
+           </div>
+       </div>
+   </div>
+</div>
     
     <div class="container">
     	<div class="row">
     		<div class="col-lg-12" id="form">
     			<form th:action="@{createAdvertisement}" method="post" enctype="multipart/form-data">
-					<div class="form-group">
-						<label class="control-label">Titre de l'annonce</label>
-						<input class="form-control" type="text" name="title" th:value="${adv.title}"/>
-					</div>
-					<div class="form-group">
-						<label class="control-label">Description de l'annonce</label>
-						<input class="form-control" type="text" name="description"  th:value="${adv.description}"/>
-					</div>
-					
-					<div class="form-group row">
+    				<h1>Entrez les informations sur l'annonce</h1>
+    				<div id="formProduct">
+	    				<div class="form-group">
+							<label class="control-label">Titre de l'annonce</label>
+							<input class="form-control" type="text" name="title" th:value="${adv.title}"/>
+						</div>
+						<div class="form-group">
+							<label class="control-label">Description de l'annonce</label>
+							<input class="form-control" type="text" name="description"  th:value="${adv.description}"/>
+						</div>
+						<div class="form-group">
    							 <select class="form-control" id="categories" name="categories">
-   							 <option values="">categorie</option>
-    							    <option th:each="category : ${categories}"
-    						            th:value="${category.id}"
-     							        th:text="${category.name}"/>
+   							 	<option values="">Sélectionner votre catégorie</option>
+							    <option th:each="category : ${categories}"
+						            th:value="${category.id}"
+ 							        th:text="${category.name}"/>
    							 </select>
-					</div>
-					<div class="form-group">
-						<label class="control-label">Image de description</label>
-						<input type="file" name="file" multiple="multiple"/>
-					</div>
+						</div>
+						<div class="form-group">
+							<label class="control-label">Image de description</label>
+							<input class="form-control" type="file" name="file" multiple="multiple"/>
+						</div>
+    				</div>
 					
-					<div class="form-group">
-						<label class="control-label">Adresse</label>
-						<input class="form-control" type="text" name="street" th:value="${address.street}"/>
-						<span th:errors="${address.street}"></span>
+					<h1>Entrez les informations sur l'adresse</h1>
+					<div id="formAddress">
+						<div class="form-group">
+							<label class="control-label">Adresse</label>
+							<input class="form-control" type="text" name="street" th:value="${address.street}"/>
+							<span th:errors="${address.street}"></span>
+						</div>
+						<div class="form-group">
+							<label class="control-label">Ville</label>
+							<input class="form-control" type="text" name="city" th:value="${address.city}"/>
+							<span th:errors="${address.city}"></span>
+						</div>
+						<div class="form-group">
+							<label class="control-label">Code postal</label>
+							<input class="form-control" type="text" name="zip" th:value="${address.zip}"/>
+							<span th:errors="${address.zip}"></span>
+						</div>
+						<div class="form-group">
+							<label class="control-label">Pays</label>
+							<input class="form-control" type="text" name="country" th:value="${address.country}"/>
+							<span th:errors="${address.country}"></span>
+						</div>
 					</div>
-					<div class="form-group">
-						<label class="control-label">Ville</label>
-						<input class="form-control" type="text" name="city" th:value="${address.city}"/>
-						<span th:errors="${address.city}"></span>
-					</div>
-					<div class="form-group">
-						<label class="control-label">Code postal</label>
-						<input class="form-control" type="text" name="zip" th:value="${address.zip}"/>
-						<span th:errors="${address.zip}"></span>
-					</div>
-					<div class="form-group">
-						<label class="control-label">Pays</label>
-						<input class="form-control" type="text" name="country" th:value="${address.country}"/>
-						<span th:errors="${address.country}"></span>
-					</div>		
-					
-					<button type="submit" class="btn btn-primary">Creer Annonce</button>
+					<button type="submit" class="btnStyle">Creer Annonce</button>
 				</form>
     		</div>
     	</div>
@@ -124,8 +129,8 @@
                </div>
                <div id="generalInformations" class="col-lg-4">
                    <h1>Informations générales</h1>
-                   <a th:href="@{/information#condition}">Conditions générales d'utilisation</a><br/>
-                   <a th:href="@{/information#privateLife}">Vie privée / cookies</a>
+                   <a th:href="@{/information}">Conditions générales d'utilisation</a><br/>
+                   <a th:href="@{/information}">Vie privée / cookies</a>
                </div>
                <div id="socialNetworks" class="col-lg-4">
                    <h1>Réseaux sociaux</h1>

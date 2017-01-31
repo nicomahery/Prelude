@@ -49,7 +49,7 @@ public class UserController {
 		User user = userRepository.findOne((Long)session.getAttribute("userId"));
 		model.addAttribute("user", user);
 		model.addAttribute("address", user.getAddress());
-		return "userModifyForm";
+		return "view/userModifyForm";
 	}
 
 	@RequestMapping(value="/connect", method=RequestMethod.POST)
