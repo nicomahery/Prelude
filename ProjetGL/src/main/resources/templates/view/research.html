@@ -60,52 +60,18 @@
         </div>
     </div>
 </div>
+				        
 <div class="container">
     <div class="row">
         <div class="col-lg-10" id="infoProduct">
             <div class="row">
                 <div class="col-lg-12" id="listProducts">
                     <h1 class="text-center">Produits</h1>
-                    <a th:href="@{/product}">
+                    <a th:each="adv : ${advlist}" th:href="@{'/getAdvertisement?id='+${adv.id}}">
                         <div id="produit1" class="col-lg-4">
                             <img th:src="@{../img/imgProduct.jpg}" width="200" height="150" alt=""></img>
                             <h3>Canapé</h3>
                             <p>Mise en ligne le : 15 décembre 2016</p>
-                        </div>
-                    </a>
-                    <a href="#">
-                        <div id="produit2" class="col-lg-4">
-                            <img th:src="@{../img/imgProduct2.jpg}" width="200" height="150" alt=""></img>
-                            <h3>Plante verte</h3>
-                            <p>Mise en ligne le : 14 décembre 2016</p>
-                        </div>
-                    </a>
-                    <a href="#">
-                        <div id="produit3" class="col-lg-4">
-                            <img th:src="@{../img/imgProduct3.jpg}" width="200" height="150" alt=""></img>
-                            <h3>Table</h3>
-                            <p>Mise en ligne le : 12 décembre 2016</p>
-                        </div>
-                    </a>
-                    <a href="#">
-                        <div id="produit4" class="col-lg-4">
-                            <img th:src="@{../img/imgProduct5.jpg}" width="200" height="150" alt=""></img>
-                            <h3>Tableau</h3>
-                            <p>Mise en ligne le : 12 décembre 2016</p>
-                        </div>
-                    </a>
-                    <a href="#">
-                        <div id="produit6" class="col-lg-4">
-                            <img th:src="@{../img/imgProduct4.jpg}" width="200" height="150" alt=""></img>
-                            <h3>Chaises</h3>
-                            <p>Mise en ligne le : 11 décembre 2016</p>
-                        </div>
-                    </a>
-                    <a href="#">
-                        <div id="produit5" class="col-lg-4">
-                            <img th:src="@{../img/imgProduct6.jpg}" width="200" height="150" alt=""></img>
-                            <h3>Plante</h3>
-                            <p>Mise en ligne le : 11 décembre 2016</p>
                         </div>
                     </a>
                 </div>

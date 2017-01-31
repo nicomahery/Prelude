@@ -144,6 +144,18 @@ public class AdvertisementController {
 		return "view/product";
 	}
 	
+	@RequestMapping(value="/research", method=RequestMethod.POST)
+	public String research(Model model, @RequestParam("researchTxt") String titleReseach){
+		List<Advertisement> adv = advertisementRepository.findAll();
+		List<Advertisement> advFinal= new ArrayList <Advertisement>();
+		for(Advertisement a : adv){
+			if(a.getTitle().contains(titleReseach)){
+				advFinal.add(a);
+			}
+		}
+		model.addAttribute("advlist", advFinal);
+		return "view/product";
+	}
 	public List<Long> getAllImage(Advertisement adv){
 		List<Long> res = new ArrayList<Long>();
 		for(Photo p: photoRepository.findByAdvertisement(adv))
