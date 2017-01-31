@@ -41,4 +41,8 @@ public class GeneralController {
 		return "view/modifyAdvert";
 	}
 	
+	@RequestMapping("/back")
+	public String backPage(){
+		return "view/back";
+	}
 }

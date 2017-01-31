@@ -38,8 +38,10 @@
                     </nav>
                 </div>
                 <div id="connection" class="col-lg-3">
-                    <a th:href="@{/user/subscribePage}"><img th:src="@{../img/iconConnexion.png}" width="25" height="25" alt=""/>
+                    <a th:if="${session.userId} == null" th:href="@{/user/subscribePage}"><img th:src="@{../img/iconConnexion.png}" width="25" height="25" alt=""/>
                         Se connecter - S'inscrire</a>
+                    <a th:if="${session.userId} != null" th:href="@{/back}"><img th:src="@{../img/iconConnexion.png}" width="25" height="25" alt=""/>
+                        Mon compte</a>
                 </div>
             </div>
         </div>
@@ -128,8 +130,8 @@
                </div>
                <div id="generalInformations" class="col-lg-4">
                    <h1>Informations générales</h1>
-                   <a th:href="@{/information#condition}">Conditions générales d'utilisation</a><br/>
-                   <a th:href="@{/information#privateLife}">Vie privée / cookies</a>
+                   <a th:href="@{/information}">Conditions générales d'utilisation</a><br/>
+                   <a th:href="@{/information}">Vie privée / cookies</a>
                </div>
                <div id="socialNetworks" class="col-lg-4">
                    <h1>Réseaux sociaux</h1>
