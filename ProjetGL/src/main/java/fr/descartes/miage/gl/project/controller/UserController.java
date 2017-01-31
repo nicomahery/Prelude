@@ -44,7 +44,6 @@ public class UserController {
 		return "view/back";
 	}
 
-	
 	@RequestMapping(value="/modifyPage", method=RequestMethod.GET)
 	public String modifyPage(Model model, HttpSession session){
 		User user = userRepository.findOne((Long)session.getAttribute("userId"));
@@ -69,8 +68,6 @@ public class UserController {
 		}
 		return "eee";
 	}
-
-
 
 	@RequestMapping(value="/disconnect", method=RequestMethod.GET)
 	public String disconnect(HttpSession session){
