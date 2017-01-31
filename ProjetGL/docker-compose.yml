@@ -19,7 +19,8 @@ services:
 
   spring:
     image: vibioh/annonce
-    command: --spring.datasource.url=jdbc:mysql://db:3306/annonce
+    command:
+    - --spring.datasource.url=jdbc:mysql://db:3306/annonce
     labels:
       traefik.frontend.passHostHeader: 'true'
       traefik.frontend.rule: 'Host: annonce.l3miage.fr'
