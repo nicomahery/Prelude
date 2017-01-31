@@ -160,6 +160,21 @@ public class AdvertisementController {
 		model.addAttribute("advlist", advFinal);
 		return "view/research";
 	}
+	
+	@RequestMapping(value="/getAll", method=RequestMethod.GET)
+	public String getAll(Model model){
+		List<Advertisement> adv = advertisementRepository.findAll();
+		HashMap<Long,Advertisement> advFinal= new HashMap <Long, Advertisement>();
+		
+		List <Long>listImg= new ArrayList <Long>();
+		
+		for(Advertisement a : adv){
+			advFinal.put(this.getOneImage(a), a);
+		}
+		model.addAttribute("advlist", advFinal);
+		return "view/research";
+	}
+	
 	public List<Long> getAllImage(Advertisement adv){
 		List<Long> res = new ArrayList<Long>();
 		for(Photo p: photoRepository.findByAdvertisement(adv))
@@ -171,7 +186,9 @@ public class AdvertisementController {
 		List<Long> res = new ArrayList<Long>();
 		for(Photo p: photoRepository.findByAdvertisement(adv))
 			res.add(p.getId());
-		return res.get(0);
+		if (!res.isEmpty())
+			return res.get(0);
+		return 0;
 	}
 	
 	@RequestMapping(value="/modifyAdvertisement", method=RequestMethod.POST)
