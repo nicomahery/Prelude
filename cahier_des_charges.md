@@ -24,7 +24,7 @@ Notre site est accessible en France et DOM TOM. Les produits à données doivent
 
 **Description fonctionnelle**
 
-![test](https://raw.githubusercontent.com/nicomahery/projetGL/master/cas_utilisation.png)
+![cas_utilisation](https://raw.githubusercontent.com/nicomahery/projetGL/master/cas_utilisation.png)
 
 
 
