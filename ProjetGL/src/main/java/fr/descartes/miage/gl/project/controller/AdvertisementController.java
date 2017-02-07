@@ -193,16 +193,15 @@ public class AdvertisementController {
 	
 	@RequestMapping(value="/researchState", method=RequestMethod.GET)
 	public String researchState(Model model, @RequestParam("researchState") String nameState){
-		List<Advertisement> advCat = advertisementRepository.findByAddress(addressRepository.findByState(nameState));
+		
+		List<Advertisement> advList = addressRepository.findByState(nameState);
 		
 		HashMap<Long,Advertisement> advFinal= new HashMap <Long, Advertisement>();
 		
 		List <Long>listImg= new ArrayList <Long>();
 		
-		for(Advertisement a : advCat){
-			if(a.getCategory().getName().contains(nameCat)){
-				advFinal.put(this.getOneImage(a), a);
-			}
+		for(Advertisement a : advList){
+			advFinal.put(this.getOneImage(a), a);
 		}
 		model.addAttribute("advlist", advFinal);
 		return "view/research";
