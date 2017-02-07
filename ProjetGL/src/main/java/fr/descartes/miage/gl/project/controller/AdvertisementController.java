@@ -145,6 +145,12 @@ public class AdvertisementController {
 		return "view/product";
 	}
 	
+	@RequestMapping(value="/deleteAdvertisement", method=RequestMethod.GET)
+	public String deleteAdvertisement(Model model, @RequestParam("advertisementId") Long id){
+		advertisementRepository.delete(id);
+		return "view/product";
+	}
+	
 	@RequestMapping(value="/research", method=RequestMethod.POST)
 	public String research(Model model, @RequestParam("researchTxt") String titleReseach){
 		List<Advertisement> adv = advertisementRepository.findAll();
@@ -246,14 +252,6 @@ public class AdvertisementController {
 		model.addAttribute("user",userRepository.findOne((Long)session.getAttribute("userId")));
 		
 		return "advertisementSuccess";
-	}
-
-	@RequestMapping(value="/deleteAdvertisement", method=RequestMethod.GET)
-	public String deleteAdvertisementPage(Model model, @RequestParam("advertisementId") String advertisementId, HttpSession session){
-		Advertisement a=advertisementRepository.findOne(Long.valueOf(advertisementId));
-		a.setSold(true);
-		advertisementRepository.save(a);
-		return  "redirect:../";
 	}
 	
 	@RequestMapping(value="/advertisementPage", method=RequestMethod.GET)
