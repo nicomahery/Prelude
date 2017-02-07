@@ -73,7 +73,7 @@
                 			<img th:src="@{../img/date.jpg}" width="25" height="25" alt=""  />
                 		</div>
                 		<div class="col-lg-11">
-                			<p th:text="${'Mise en ligne le : ' + adv.date}"></p>
+                			<p th:text="${'Mise en ligne le : ' + #dates.format(new java.util.Date(adv.date), 'dd-MMM-yyyy')}"></p>
                 		</div>
                 		<div class="col-lg-1">
                 			<img th:src="@{../img/iconConnexion.png}" width="25" height="25" alt=""/>

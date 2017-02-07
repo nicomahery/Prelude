@@ -239,14 +239,6 @@ public class AdvertisementController {
 		
 		return "advertisementSuccess";
 	}
-
-	@RequestMapping(value="/deleteAdvertisement", method=RequestMethod.GET)
-	public String deleteAdvertisementPage(Model model, @RequestParam("advertisementId") String advertisementId, HttpSession session){
-		Advertisement a=advertisementRepository.findOne(Long.valueOf(advertisementId));
-		a.setSold(true);
-		advertisementRepository.save(a);
-		return  "redirect:../";
-	}
 	
 	@RequestMapping(value="/advertisementPage", method=RequestMethod.GET)
 	public String advertisementPage(Model model, @RequestParam("advertisementId") String advertisementId, HttpSession session){
