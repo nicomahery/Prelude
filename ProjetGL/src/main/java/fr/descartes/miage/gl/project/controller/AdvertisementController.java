@@ -9,16 +9,13 @@ import java.util.List;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
-import org.apache.tomcat.util.codec.binary.Base64;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -181,6 +178,23 @@ public class AdvertisementController {
 	public String researchCat(Model model, @RequestParam("researchCat") String nameCat){
 		List<Advertisement> advCat = advertisementRepository.findByCategory(categoryRepository.findByName(nameCat));
 		model = this.addAllCategories(model);
+		HashMap<Long,Advertisement> advFinal= new HashMap <Long, Advertisement>();
+		
+		List <Long>listImg= new ArrayList <Long>();
+		
+		for(Advertisement a : advCat){
+			if(a.getCategory().getName().contains(nameCat)){
+				advFinal.put(this.getOneImage(a), a);
+			}
+		}
+		model.addAttribute("advlist", advFinal);
+		return "view/research";
+	}
+	
+	@RequestMapping(value="/researchState", method=RequestMethod.GET)
+	public String researchState(Model model, @RequestParam("researchState") String nameState){
+		List<Advertisement> advCat = advertisementRepository.findByAddress(addressRepository.findByState(nameState));
+		
 		HashMap<Long,Advertisement> advFinal= new HashMap <Long, Advertisement>();
 		
 		List <Long>listImg= new ArrayList <Long>();
