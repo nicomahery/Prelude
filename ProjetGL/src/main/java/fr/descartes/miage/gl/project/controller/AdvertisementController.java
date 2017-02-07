@@ -148,6 +148,12 @@ public class AdvertisementController {
 		return "view/product";
 	}
 	
+	@RequestMapping(value="/deleteAdvertisement", method=RequestMethod.GET)
+	public String deleteAdvertisement(Model model, @RequestParam("advertisementId") Long id){
+		advertisementRepository.delete(id);
+		return "view/product";
+	}
+	
 	@RequestMapping(value="/research", method=RequestMethod.POST)
 	public String research(Model model, @RequestParam("researchTxt") String titleReseach){
 		List<Advertisement> adv = advertisementRepository.findAll();
@@ -178,9 +184,9 @@ public class AdvertisementController {
 		return "view/research";
 	}
 			
-	@RequestMapping(value="/researchCat", method=RequestMethod.POST)
+	@RequestMapping(value="/researchCat", method=RequestMethod.GET)
 	public String researchCat(Model model, @RequestParam("researchCat") String nameCat){
-		List<Advertisement> advCat = advertisementRepository.findAll();
+		List<Advertisement> advCat = advertisementRepository.findByCategory(categoryRepository.findByName(nameCat));
 		
 		HashMap<Long,Advertisement> advFinal= new HashMap <Long, Advertisement>();
 		
