@@ -148,6 +148,12 @@ public class AdvertisementController {
 		return "view/product";
 	}
 	
+	@RequestMapping(value="/deleteAdvertisement", method=RequestMethod.GET)
+	public String deleteAdvertisement(Model model, @RequestParam("advertisementId") Long id){
+		advertisementRepository.delete(id);
+		return "view/product";
+	}
+	
 	@RequestMapping(value="/research", method=RequestMethod.POST)
 	public String research(Model model, @RequestParam("researchTxt") String titleReseach){
 		List<Advertisement> adv = advertisementRepository.findAll();
