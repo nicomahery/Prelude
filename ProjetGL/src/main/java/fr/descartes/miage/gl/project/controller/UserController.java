@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import fr.descartes.miage.gl.project.dao.AddressRepository;
 import fr.descartes.miage.gl.project.dao.UserRepository;
 import fr.descartes.miage.gl.project.entities.Address;
+import fr.descartes.miage.gl.project.entities.Advertisement;
 import fr.descartes.miage.gl.project.entities.User;
 
 @Controller
@@ -29,18 +30,18 @@ public class UserController {
 	public String create(Model model){
 		model.addAttribute("user", new User());
 		model.addAttribute("address", new Address());
-		return "userSubForm";
+		return "view/login";
 	}
 
 	@RequestMapping(value="/subscribe", method=RequestMethod.POST)
 	public String subscribe(Model model,@Valid Address address,@Valid User user, BindingResult bindingResult){
 		System.out.println("Parameters: username:"+user.getPassword());
 		if(bindingResult.hasErrors())
-			return "userSubForm";
+			return "view/login";
 		addressRepository.save(address);
 		user.setAddress(address);
 		userRepository.save(user);
-		return "userSuccess";
+		return "view/back";
 	}
 
 	@RequestMapping(value="/modifyPage", method=RequestMethod.GET)
@@ -48,7 +49,7 @@ public class UserController {
 		User user = userRepository.findOne((Long)session.getAttribute("userId"));
 		model.addAttribute("user", user);
 		model.addAttribute("address", user.getAddress());
-		return "userModifyForm";
+		return "view/userModifyForm";
 	}
 
 	@RequestMapping(value="/connect", method=RequestMethod.POST)
@@ -61,14 +62,12 @@ public class UserController {
 					session.setAttribute("userId", u.getId());
 					session.setAttribute("addressId", a.getId());					
 					session.setAttribute("userUsername", u.getUsername());
-					return "redirect:../";
+					return "view/back";
 				}
 			}
 		}
-		return "redirect:../";
+		return "eee";
 	}
-
-
 
 	@RequestMapping(value="/disconnect", method=RequestMethod.GET)
 	public String disconnect(HttpSession session){
@@ -85,6 +84,7 @@ public class UserController {
 		Address newAddress = addressRepository.findOne(addressIDO);
 		
 		newAddress.setId(addressIDO);
+		newAddress.setState(address.getState());
 		newAddress.setStreet(address.getStreet());
 		newAddress.setCity(address.getCity());
 		newAddress.setZip(address.getZip());
@@ -104,5 +104,4 @@ public class UserController {
 		return "userSuccess";
 	};
 	
-
 }

@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8" />
+<title>Ajouter une annonce</title>
+
+<link rel="stylesheet" type="text/css"	th:href="@{../css/bootstrap.min.css}" />
+<link rel="stylesheet" type="text/css" th:href="@{../css/style.css}" />
+
+</head>
+<body>
+<header>
+    <div class="container">
+        <div class="row">
+            <div id="menuband">
+                <div id="logo" class="col-lg-2">
+                    <img th:src="@{../img/iconCarton.png}" width="70" heigth="70" alt=""/>
+                </div>
+                <div id="menu" class="col-lg-7">
+                    <nav class="navbar navbar-default">
+                        <div class="container">
+                            <div class="navbar-header">
+                                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false">
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                </button>
+                            </div>
+                            <div id="navbar" class="collapse navbar-collapse">
+                                <ul class="nav navbar-nav">
+                                    <li><a th:href="@{/}" href="index.html">Accueil</a></li>
+                                    <li><a th:href="@{/advertisement/getAll}">Voir nos annonces</a></li>
+                                    <li><a th:href="@{/about}">A Propos</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </nav>
+                </div>
+                <div id="connection" class="col-lg-3">
+                    <a th:if="${session.userId} == null" th:href="@{/user/subscribePage}"><img th:src="@{../img/iconConnexion.png}" width="25" height="25" alt=""/>
+                        Se connecter - S'inscrire</a>
+                    <a th:if="${session.userId} != null" th:href="@{/back}"><img th:src="@{../img/iconConnexion.png}" width="25" height="25" alt=""/>
+                        Mon compte</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</header>
+<div class="container-fluid">
+   <div class="row">
+       <div id="headband">
+           <div id="contentHeadband" class=" col-lg-2 col-lg-offset-5">
+               <h1>Ajouter une annonce</h1>
+               <form method="" action="" class="text-center">
+                   <input type="text" class="form-control"/><br/>
+                   <input type="submit" id="submit" value="Rechercher"/>
+               </form>
+           </div>
+       </div>
+   </div>
+</div>
+    
+    <div class="container">
+    	<div class="row">
+    		<div class="col-lg-12" id="form">
+    			<form th:action="@{createAdvertisement}" method="post" enctype="multipart/form-data">
+    				<h1>Entrez les informations sur l'annonce</h1>
+    				<div class="formInfos" id="formProduct">
+	    				<div class="form-group">
+							<label class="control-label">Titre de l'annonce</label>
+							<input class="form-control" type="text" name="title" th:value="${adv.title}"/>
+						</div>
+						<div class="form-group">
+							<label class="control-label">Description de l'annonce</label>
+							<input class="form-control" type="text" name="description"  th:value="${adv.description}"/>
+						</div>
+						<div class="form-group">
+   							 <select class="form-control" id="categories" name="categories">
+   							 	<option values="">Sélectionner votre catégorie</option>
+							    <option th:each="category : ${categories}"
+						            th:value="${category.id}"
+ 							        th:text="${category.name}"/>
+   							 </select>
+						</div>
+						<div class="form-group">
+							<label class="control-label">Image de description</label>
+							<input class="form-control" type="file" name="file" multiple="multiple"/>
+						</div>
+    				</div>
+					
+					<h1>Entrez les informations sur l'adresse</h1>
+					<div class="formInfos" id="formAddress">
+						<div class="form-group">
+							<label class="control-label">Adresse</label>
+							<input class="form-control" type="text" name="street" th:value="${address.street}"/>
+							<span th:errors="${address.street}"></span>
+						</div>
+						<div class="form-group">
+							<label class="control-label">Ville</label>
+							<input class="form-control" type="text" name="city" th:value="${address.city}"/>
+							<span th:errors="${address.city}"></span>
+						</div>
+						<div class="form-group">
+							<label class="control-label">Code postal</label>
+							<input class="form-control" type="text" name="zip" th:value="${address.zip}"/>
+							<span th:errors="${address.zip}"></span>
+						</div>
+						<div class="form-group">
+							<label class="control-label">Pays</label>
+							<input class="form-control" type="text" name="country" th:value="${address.country}"/>
+							<span th:errors="${address.country}"></span>
+						</div>
+					</div>
+					<button type="submit" class="btnStyle">Creer Annonce</button>
+				</form>
+    		</div>
+    	</div>
+    </div>
+		
+	<footer>
+       <div class="container">
+           <div class="row">
+               <div id="about" class="col-lg-4">
+                   <h1>A Propos</h1>
+                   <a th:href="@{/about#whoAreUs}">Qui sommes-nous ?</a><br/>
+                   <a th:href="@{/about#contact}">Nous contacter</a><br/>
+                   <a th:href="@{/about#careers}">Nous rejoindre</a>
+               </div>
+               <div id="generalInformations" class="col-lg-4">
+                   <h1>Informations générales</h1>
+                   <a th:href="@{/information}">Conditions générales d'utilisation</a><br/>
+                   <a th:href="@{/information}">Vie privée / cookies</a>
+               </div>
+               <div id="socialNetworks" class="col-lg-4">
+                   <h1>Réseaux sociaux</h1>
+                   <a href="#"><img th:src="@{../img/facebook.png}" width="50" height="50" alt=""/></a>
+                   <a href="#"><img th:src="@{../img/twitter.png}" width="50" height="50" alt=""/></a>
+                   <a href="#"><img th:src="@{../img/google.png}" width="50" height="50" alt=""/></a>
+               </div>
+           </div>
+       </div>
+   </footer>
+
+	
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.12.3.min.js"></script>	
+<script type="text/javascript" th:src="@{../js/google.js}"></script>
+
+
+<script type="text/javascript">
+    var inputAd = document.getElementById('addresse');
+    autocomplete = new google.maps.places.Autocomplete(inputAd);
+	
+	var inputCit = document.getElementById('city');
+    autocomplete = new google.maps.places.Autocomplete(inputCit);
+	
+	var inputCodeP = document.getElementById('codeP');
+    autocomplete = new google.maps.places.Autocomplete(inputCodeP);
+</script>
+</body>
+</html>

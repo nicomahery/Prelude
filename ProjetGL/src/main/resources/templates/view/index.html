@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Accueil</title>
+    <link rel="icon" th:href="@{../img/iconCarton.png}" />
+    <link rel="stylesheet" type="text/css" th:href="@{../css/bootstrap.min.css}"/>
+    <link type="text/css" rel="stylesheet" th:href="@{../css/jquery-jvectormap-2.0.3.css}" />
+    <link type="text/css" rel="stylesheet" th:href="@{../css/style.css}"/>
+    <script type="text/javascript" th:src="@{../js/jquery-3.1.1.min.js}" ></script>
+    <script type="text/javascript" th:src="@{../js/bootstrap.min.js}" ></script>
+    <script type="text/javascript" th:src="@{../js/jquery-jvectormap-2.0.3.min.js}" ></script>
+    <script type="text/javascript" th:src="@{../js/map.js}"></script>
+</head>
+<body>
+<header>
+    <div class="container">
+        <div class="row">
+            <div id="menuband">
+                <div id="logo" class="col-lg-2">
+                    <img th:src="@{../img/iconCarton.png}" width="70" heigth="70" alt=""/>
+                </div>
+                <div id="menu" class="col-lg-7">
+                    <nav class="navbar navbar-default">
+                        <div class="container">
+                            <div class="navbar-header">
+                                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false">
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                </button>
+                            </div>
+                            <div id="navbar" class="collapse navbar-collapse">
+                                <ul class="nav navbar-nav">
+                                    <li><a th:href="@{/}" href="index.html">Accueil</a></li>
+                                    <li><a th:href="@{/advertisement/getAll}">Voir nos annonces</a></li>
+                                    <li><a th:href="@{/about}">A Propos</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </nav>
+                </div>
+                <div id="connection" class="col-lg-3">
+                    <a th:if="${session.userId} == null" th:href="@{/user/subscribePage}"><img th:src="@{../img/iconConnexion.png}" width="25" height="25" alt=""/>
+                        Se connecter - S'inscrire</a>
+                    <a th:if="${session.userId} != null" th:href="@{/back}"><img th:src="@{../img/iconConnexion.png}" width="25" height="25" alt=""/>
+                        Mon compte</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</header>
+    <div class="container-fluid">
+        <div class="row">
+            <div id="headband">
+                <div id="contentHeadband" class=" col-lg-2 col-lg-offset-5">
+                    <h1>Bienvenue</h1>
+                    <form th:action="@{/advertisement/research}" method="POST"  class="text-center" >
+                        <input type="text" class="form-control" name="researchTxt"/><br/>
+                        <input type="submit" id="submit" value="Rechercher"/>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div id="explication">
+                <div id="explication1" class="col-lg-4">
+                    <img th:src="@{../img/picto1.png}" width="100" height="100" alt=""/>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                        Morbi sed nisi id risus viverra cursus. Mauris bibendum arcu suscipit, venenatis arcu tincidunt, molestie est. </p>
+                </div>
+                <div id="explication2" class="col-lg-4">
+                    <img  th:src="@{../img/picto2.png}" width="100" height="100" alt=""/>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi sed nisi id risus viverra cursus.
+                        Mauris bibendum arcu suscipit, venenatis arcu tincidunt, molestie est. </p>
+                </div>
+                <div id="explication3" class="col-lg-4">
+                    <img  th:src="@{../img/picto4.png}" width="100" height="100" alt=""/>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi sed nisi id risus viverra cursus.
+                        Mauris bibendum arcu suscipit, venenatis arcu tincidunt, molestie est. </p>
+                </div>
+            </div>
+            <div id="listcategories" class="text-center">
+                <h1>Trouver par catégories</h1>
+                <a href="#">
+                    <div id="category1" class="col-lg-3 text-center">
+                        <img th:src="@{../img/categ1.jpg}" width="200" height="150" alt=""/>
+                        <p>MEUBLES</p>
+                    </div>
+                </a>
+                <a href="#">
+                    <div id="category2" class="col-lg-3 text-center">
+                        <img th:src="@{../img/categ2.jpg}" width="200" height="150" alt=""/>
+                        <p>PLANTES</p>
+                    </div>
+                </a>
+                <a href="#">
+                    <div id="category3" class="col-lg-3 text-center">
+                        <img th:src="@{../img/categ3.jpg}" width="200" height="150" alt=""/>
+                        <p>ARTS</p>
+                    </div>
+                </a>
+                <a href="#">
+                    <div id="category4" class="col-lg-3 text-center">
+                        <img th:src="@{../img/categ4.jpg}" width="200" height="150" alt=""/>
+                        <p>TABLES</p>
+                    </div>
+                </a>
+            </div>
+            <div id="mapDiv">
+                <h1 class="text-center">Trouver par régions</h1>
+                <div id="map" class="col-lg-6" style="width: 600px; height: 400px;">
+
+                </div>
+                <div class="col-lg-4">
+                    <ul>
+                        <li><a href="#">Auvergne-Rhône-Alpes</a></li>
+                        <li><a href="#">Bourgogne-Franche-Comté</a></li>
+                        <li><a href="#">Bretagne</a></li>
+                        <li><a href="#">Centre-Val de Loire</a></li>
+                        <li><a href="#">Corse</a></li>
+                        <li><a href="#">Grand Est</a></li>
+                        <li><a href="#">Guadeloupe</a></li>
+                        <li><a href="#">Guyane Française</a></li>
+                        <li><a href="#">Hauts-de-France</a></li>
+                        <li><a href="#">Île-de-France</a></li>
+                        <li><a href="#">Martinique</a></li>
+                        <li><a href="#">Mayotte</a></li>
+                        <li><a href="#">Normandie</a></li>
+                        <li><a href="#">Nouvelle Aquitaine</a></li>
+                        <li><a href="#">Occitanie</a></li>
+                        <li><a href="#">Pays de la Loire</a></li>
+                        <li><a href="#">Provence-Alpes-Côtes d'Azur</a></li>
+                        <li><a href="#">Réunion</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div id="information">
+                <h1>Information</h1>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi sed nisi id risus viverra cursus.
+                    Mauris bibendum arcu suscipit, venenatis arcu tincidunt, molestie est.</p>
+                <a th:href="@{/information}">Voir</a>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div id="about" class="col-lg-4">
+                    <h1>A Propos</h1>
+                    <a th:href="@{/about#whoAreUs}">Qui sommes-nous ?</a><br/>
+                    <a th:href="@{/about#contact}">Nous contacter</a><br/>
+                    <a th:href="@{/about#careers}">Nous rejoindre</a>
+                </div>
+                <div id="generalInformations" class="col-lg-4">
+                    <h1>Informations générales</h1>
+                    <a th:href="@{/information}">Conditions générales d'utilisation</a><br/>
+                    <a th:href="@{/information#privateLife}">Vie privée / cookies</a>
+                </div>
+                <div id="socialNetworks" class="col-lg-4">
+                    <h1>Réseaux sociaux</h1>
+                    <a href="#"><img th:src="@{../img/facebook.png}" width="50" height="50" alt=""/></a>
+                    <a href="#"><img th:src="@{../img/twitter.png}" width="50" height="50" alt=""/></a>
+                    <a href="#"><img th:src="@{../img/google.png}" width="50" height="50" alt=""/></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script type="text/javascript">
+        $(document).ready(function(){
+
+            $('#map').vectorMap({
+                map: 'fr_regions_2016_merc',
+                backgroundColor: 'white',
+                regionStyle : {
+                    initial: {
+                        fill: 'black',
+                        "fill-opacity": 1,
+                        stroke: 'none',
+                        "stroke-width": 0,
+                        "stroke-opacity": 1
+                    },
+                    hover: {
+                        "fill-opacity": 0.8,
+                        cursor: 'pointer'
+                    },
+                    selected: {
+                        fill: 'yellow'
+                    },
+                    selectedHover: {
+                    }
+                }
+            });
+
+        });
+    </script>
+
+</body>
+</html>

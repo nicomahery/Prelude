@@ -21,8 +21,6 @@ public class Advertisement {
 	private User owner;
 	private boolean sold;
 	@ManyToOne
-	private Photo photo;
-	@ManyToOne
 	private Address address;
 	
 	public Advertisement() {
@@ -73,6 +71,14 @@ public class Advertisement {
 		return owner;
 	}
 
+	public Address getAddress() {
+		return address;
+	}
+
+	public void setAddress(Address address) {
+		this.address = address;
+	}
+
 	public void setOwner(User owner) {
 		this.owner = owner;
 	}
@@ -84,7 +90,5 @@ public class Advertisement {
 	public void setSold(boolean sold) {
 		this.sold = sold;
 	}
-	
-	
-	
+
 }

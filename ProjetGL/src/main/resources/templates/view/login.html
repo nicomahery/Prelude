@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8" />
+<title>Se connecter</title>
+<link rel="icon" th:src="@{../img/iconCarton.png}" />
+<link rel="stylesheet" type="text/css"
+	th:href="@{../css/bootstrap.min.css}" />
+<link rel="stylesheet" type="text/css" th:href="@{../css/style.css}" />
+
+</head>
+<body>
+	<header>
+		<div class="container">
+			<div class="row">
+				<div id="menuband">
+					<div id="logo" class="col-lg-2">
+						<img th:src="@{../img/iconCarton.png}" width="70" heigth="70"
+							alt="" />
+					</div>
+					<div id="menu" class="col-lg-7">
+						<nav class="navbar navbar-default">
+							<div class="container">
+								<div class="navbar-header">
+									<button type="button" class="navbar-toggle collapsed"
+										data-toggle="collapse" data-target="#navbar"
+										aria-expanded="false">
+										<span class="icon-bar"></span> <span class="icon-bar"></span>
+										<span class="icon-bar"></span>
+									</button>
+								</div>
+								<div id="navbar" class="collapse navbar-collapse">
+									<ul class="nav navbar-nav">
+										<li><a th:href="@{/}">Accueil</a></li>
+										<li><a th:href="@{/advertisement/getAll}">Voir nos annonces</a></li>
+										<li><a th:href="@{/about}">A Propos</a></li>
+									</ul>
+								</div>
+							</div>
+						</nav>
+					</div>
+					<div id="connection" class="col-lg-3">
+						<a th:href="@{/user/subscribePage}"><img
+							th:src="@{../img/iconConnexion.png}" width="25" height="25"
+							alt="" /> Se connecter - S'inscrire</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</header>
+	<div class="container-fluid">
+		<div class="row">
+			<div id="headband">
+				<div id="contentHeadband" class=" col-lg-2 col-lg-offset-5">
+					<h1>Connexion - Inscription</h1>
+					<form method="" action="" class="text-center">
+						<input type="text" class="form-control" /><br /> <input
+							type="submit" id="submit" value="Rechercher" />
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="container">
+		<div class="row" id="loginDiv">
+			<div class="col-lg-4">
+				<form method="POST" th:action="@{connect}">
+					<h1>Se connecter</h1>
+					<div class="formInfos">
+						<label>Identifiant</label>
+						<input type="text" name="username" class="form-control"/>
+						<label>Mot de passe</label>
+						<input type="password" name="password" class="form-control"/>
+						<div class="text-center">
+							<input class="btnStyle" type="submit"/>
+						</div>
+					</div>
+				</form>
+			</div>
+			<div class="col-lg-offset-4 col-lg-4">
+				
+				<form method="POST" th:action="@{subscribe}"
+					onSubmit="return validation(this)">
+					<h1>Toujours pas inscrit ?</h1>
+					<div class="formInfos">
+						<label>Nom</label> 
+						<input type="text" name="lastName" class="form-control" th:value="${user.lastName}"/>
+						<span th:errors="${user.lastName}"></span> 
+						<label>Prénom</label> 
+						<input type="text" name="firstName" class="form-control" th:value="${user.firstName}"/>
+						<span th:if="${user.firstName != null}"></span> 
+						<label>Adresse email</label> 
+						<input type="text" name="mailAddress" class="form-control" th:value="${user.mailAddress}"/> 
+						<label>Mot de passe</label> 
+						<input type="password" name="mdp1" class="form-control"/>
+						<label>Confirmation du mot de passe</label> 
+						<input type="password" name="password" class="form-control"/> 
+						<span th:errors="${user.password}"></span>
+						<label>Numero de telephone</label> 
+						<input type="text" id="phoneNumber" name="phoneNumber"
+							th:value="${user.phoneNumber}" class="form-control"/> 
+						<label>Pseudo</label>
+						<input type="text" id="username" name="username"
+							th:value="${user.username}" class="form-control"/> 
+						<span th:errors="${user.username}"></span> 
+						<label>Adresse</label> 
+						<input type="text" id="address" name="street" class="form-control"
+							th:value="${address.street}"/>
+						<span th:errors="${address.street}"></span> 
+						<label>Région</label> 
+						<input type="text" id="state" name="state" class="form-control"
+							th:value="${address.state}"/> 
+						<span th:errors="${address.state}"></span>
+						<label>Ville</label>
+						<input type="text" id="city" name="city" class="form-control"
+							th:value="${address.city}"/> 
+						<span th:errors="${address.city}"></span>
+						<label>Code postal</label> 
+						<input type="text" id="zip" name="zip" class="form-control"
+							th:value="${address.zip}"/> 
+						<span th:errors="${address.zip}"></span>
+						<label>Pays</label> 
+						<input type="text" id="country" name="country" class="form-control"
+							th:value="${address.country}"/> 
+						<span th:errors="${address.country}"></span> 
+						<div class="text-center">
+							<input class="btnStyle" type="submit"></input>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+	<footer>
+		<div class="container">
+			<div class="row">
+				<div id="about" class="col-lg-4">
+					<h1>A Propos</h1>
+					<a th:href="@{/about#whoAreUs}">Qui sommes-nous ?</a><br /> <a
+						th:href="@{/about#contact}">Nous contacter</a><br /> <a
+						th:href="@{/about#careers}">Nous rejoindre</a>
+				</div>
+				<div id="generalInformations" class="col-lg-4">
+					<h1>Informations générales</h1>
+					<a th:href="@{/information}">Conditions générales
+						d'utilisation</a><br /> <a th:href="@{/information#privateLife}">Vie
+						privée / cookies</a>
+				</div>
+				<div id="socialNetworks" class="col-lg-4">
+					<h1>Réseaux sociaux</h1>
+					<a href="#"><img th:src="@{../img/facebook.png}" width="50"
+						height="50" alt="" /></a> <a href="#"><img
+						th:src="@{../img/twitter.png}" width="50" height="50" alt="" /></a> <a
+						href="#"><img th:src="@{../img/google.png}" width="50"
+						height="50" alt="" /></a>
+				</div>
+			</div>
+		</div>
+	</footer>
+
+	<script type="text/javascript" th:src="@{../js/jquery-3.1.1.min.js}"></script>
+	<script type="text/javascript" th:src="@{../js/bootstrap.min.js}"></script>
+	<!--  <script type="text/javascript" th:src="@{../js/google.js}"></script> -->
+	<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?libraries=places&amp;key=AIzaSyBCWvxUBIaoWR7n4ioVQHFloYNQAaM9Tf4"></script>
+	<script type="text/javascript">
+    var input = document.getElementById('address');
+    autocomplete = new google.maps.places.Autocomplete(input);
+	</script>
+	<script type="text/javascript">
+	function validation(f) {
+	if (f.mdp1.value != f.password.value) {
+	    alert('Vous avez entrer des mots de passe différents !');
+	    f.mdp1.focus();
+	    return false;
+	    }
+	  else if (f.mdp1.value == f.password.value) {
+	    return true;
+	    }
+	  else {
+	    f.mdp1.focus();
+	    return false;
+	    }
+	 }
+	
+	 //var input = document.getElementById('address');
+    //autocomplete = new google.maps.places.Autocomplete(input);
+
+    google.maps.event.addDomListener(window, 'load', function() {
+        initializeAutocompleteAddress('address');
+    });
+
+
+    function initializeAutocompleteAddress(id) {
+        var element = document.getElementById(id);
+        if (element) {
+            var autocomplete = new google.maps.places.Autocomplete(element, { types: ['geocode'] });
+            google.maps.event.addListener(autocomplete, 'place_changed', onPlaceChangedAddress);
+        }
+    }
+
+    function onPlaceChangedAddress() {
+        var place = this.getPlace();
+        var address = document.getElementById("address");
+        console.log(place);  // Uncomment this line to view the full object returned by Google API.
+
+        var idElement = ['state','city','zip','country'];
+        var component = place.address_components;
+        var tab = ['4','2','6','5'];
+        for (var i in idElement) {
+            var type_element = document.getElementById(idElement[i]);
+            if(type_element){
+                type_element.value = component[tab[i]].long_name;
+                $('#registration').val(place.name);
+            }
+        }
+        address.value = component[0].long_name + ' ' + component[1].long_name;
+    }
+	</script>
+</body>
+</html>

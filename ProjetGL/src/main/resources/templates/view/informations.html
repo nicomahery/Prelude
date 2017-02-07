@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Informations</title>
+    <link rel="icon" th:href="@{../img/iconCarton.png}" />
+    <link rel="stylesheet" type="text/css" th:href="@{../css/bootstrap.min.css}"/>
+    <link type="text/css" rel="stylesheet" th:href="@{../css/jquery-jvectormap-2.0.3.css}" />
+    <link type="text/css" rel="stylesheet" th:href="@{../css/style.css}"/>
+    <script type="text/javascript" th:href="@{../js/jquery-1.12.3.min.js}"></script>
+    <script type="text/javascript" th:href="@{../js/bootstrap.min.js}"></script>
+</head>
+<body>
+<header>
+    <div class="container">
+        <div class="row">
+            <div id="menuband">
+                <div id="logo" class="col-lg-2">
+                    <img src="../public/img/iconCarton.jpg" width="70" heigth="70" alt=""/>
+                </div>
+                <div id="menu" class="col-lg-7">
+                    <nav class="navbar navbar-default">
+                        <div class="container">
+                            <div class="navbar-header">
+                                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false">
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                </button>
+                            </div>
+                            <div id="navbar" class="collapse navbar-collapse">
+                                <ul class="nav navbar-nav">
+                                    <li><a th:href="@{/}">Accueil</a></li>
+                                    <li><a th:href="@{/advertisement/getAll}">Voir nos annonces</a></li>
+                                    <li><a th:href="@{/about}">A Propos</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </nav>
+                </div>
+                <div id="connection" class="col-lg-3">
+                    <a th:if="${session.userId} == null" th:href="@{/user/subscribePage}"><img th:src="@{../img/iconConnexion.png}" width="25" height="25" alt=""/>
+                        Se connecter - S'inscrire</a>
+                    <a th:if="${session.userId} != null" th:href="@{/back}"><img th:src="@{../img/iconConnexion.png}" width="25" height="25" alt=""/>
+                        Mon compte</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</header>
+<div class="container-fluid">
+    <div class="row">
+        <div id="headband">
+            <div id="contentHeadband" class=" col-lg-2 col-lg-offset-5">
+                <h1>Informations générales</h1>
+                <form method="" action="" class="text-center">
+                    <input type="text" class="form-control"/><br/>
+                    <input type="submit" id="submit" value="Rechercher"/>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row" id="informationPage">
+        <div id="condition">
+            <h1>Conditions d'utilisation</h1>
+            <p>Etiam ornare interdum cursus. Sed vestibulum vulputate viverra. Praesent pellentesque imperdiet laoreet. Nulla tempus aliquet mi, id laoreet enim scelerisque id. Maecenas ullamcorper risus ac tellus tincidunt faucibus. Pellentesque diam justo, suscipit nec ullamcorper eget, tincidunt a purus. Vestibulum suscipit eleifend feugiat. Duis malesuada id diam ac auctor. Phasellus ultrices dui elit, non blandit massa pharetra sagittis. Fusce vel ante urna. Nam quis ultricies ipsum. </p>
+            <p>Nunc ultrices sodales felis non maximus. Fusce facilisis dictum dolor in venenatis. Mauris feugiat purus at dignissim vestibulum. Sed massa purus, dictum a erat at, pretium interdum est. Nam id elit eleifend tortor ornare lobortis. Mauris congue commodo quam, in ultrices dolor laoreet non. In diam urna, convallis gravida metus vitae, tincidunt cursus nibh. Suspendisse felis urna, blandit commodo iaculis vel, cursus sit amet nulla. </p>
+            <p>Donec vehicula tortor eu purus condimentum condimentum. Ut congue ipsum odio, nec semper tellus efficitur at. Morbi non euismod diam, sit amet pulvinar tortor. Donec ultricies non magna vitae tincidunt. Proin non libero fermentum, tristique dui et, facilisis nibh. Nulla congue malesuada felis, dapibus gravida orci ornare vitae. Mauris mattis sollicitudin eleifend. Aliquam at ex nec elit tincidunt fermentum id id justo. Mauris hendrerit ex non massa vehicula sollicitudin et in risus. Fusce risus lacus, laoreet nec eros eu, aliquet venenatis nibh. Sed ut finibus erat. Donec et ipsum in tortor aliquam pellentesque sed eu dui. Donec sed tincidunt metus. </p>
+            <p>Curabitur augue ligula, iaculis nec augue nec, pretium convallis leo. Sed et iaculis leo. Sed odio urna, venenatis vitae posuere quis, posuere vitae velit. Quisque tempor neque ipsum, ut consequat purus pretium in. Fusce interdum ultrices consectetur. Duis mollis ullamcorper mi vitae accumsan. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Integer at vehicula dolor. </p>
+        </div>
+        <div id="privateLife">
+            <h1>Vie privée / cookies</h1>
+            <p>In eget turpis a urna aliquet posuere vitae nec felis. Ut elementum vitae nunc non vulputate. Vivamus tristique aliquam accumsan. Quisque vitae aliquet eros. Nunc eget cursus risus. Sed eu gravida arcu. Aliquam finibus, mi ut tempor sollicitudin, magna enim vestibulum ligula, sit amet tincidunt enim massa non purus. In hac habitasse platea dictumst. Duis blandit eros in ex tincidunt consequat. Nunc auctor vitae quam eget condimentum. Vivamus lobortis sem sit amet facilisis sollicitudin. Donec ornare sapien urna, gravida ultricies felis pulvinar id. Donec nunc risus, rhoncus non quam vel, blandit gravida enim. </p>
+            <p>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Ut hendrerit, massa at pharetra faucibus, urna nisl placerat eros, a commodo lacus lectus id ante. Morbi orci tortor, sodales sit amet dignissim vitae, dictum nec purus. Nulla aliquet, odio ut laoreet rhoncus, leo orci posuere enim, sit amet finibus turpis quam eget sem. Ut eros tellus, sodales ac libero sed, vehicula tempor velit. Morbi mauris metus, ullamcorper vel sodales nec, rhoncus at lacus. Integer lacus nunc, commodo eget lacus et, molestie tempor massa. Fusce faucibus sem magna, quis fringilla elit maximus sed. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ac tempus urna. Nullam finibus velit et felis cursus gravida. </p>
+        </div>
+    </div>
+</div>
+<footer>
+        <div class="container">
+            <div class="row">
+                <div id="about" class="col-lg-4">
+                    <h1>A Propos</h1>
+                    <a th:href="@{/about#whoAreUs}">Qui sommes-nous ?</a><br/>
+                    <a th:href="@{/about#contact}">Nous contacter</a><br/>
+                    <a th:href="@{/about#careers}">Nous rejoindre</a>
+                </div>
+                <div id="generalInformations" class="col-lg-4">
+                    <h1>Informations générales</h1>
+                    <a th:href="@{/information}">Conditions générales d'utilisation</a><br/>
+                    <a th:href="@{/information}">Vie privée / cookies</a>
+                </div>
+                <div id="socialNetworks" class="col-lg-4">
+                    <h1>Réseaux sociaux</h1>
+                    <a href="#"><img th:src="@{../img/facebook.png}" width="50" height="50" alt=""/></a>
+                    <a href="#"><img th:src="@{../img/twitter.png}" width="50" height="50" alt=""/></a>
+                    <a href="#"><img th:src="@{../img/google.png}" width="50" height="50" alt=""/></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

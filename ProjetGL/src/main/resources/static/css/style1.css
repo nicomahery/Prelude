@@ -1,0 +1,189 @@
+.headAddAdvert {
+	height: 300px;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-image: url('../img/liv.jpg');
+	background-attachment: fixed;
+}
+.headModAdvert{
+	height: 300px;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-image: url('../img/modif.jpg');
+	background-attachment: fixed;
+}
+.headAfterCo {
+	height: 300px;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-image: url('../img/salon.jpg');
+	background-attachment: fixed;
+}
+
+.headInsc {
+	height: 300px;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-image: url('../img/insc.jpg');
+	background-attachment: fixed;
+}
+
+#contentAddAdvHead{	
+	Font-Weight: Bold;
+	font-size: 50px;
+	color: white;
+	text-shadow: 0.1em 0.1em 0.15em #333;
+	text-align: center;
+}
+
+.contentAfterConn {
+	Font-Weight: Bold;
+	font-size: 50px;
+	text-shadow: 0.1em 0.1em 0.20em #333;
+	text-align: center;
+	color: white;
+	opacity: 1;
+	display: inherit;
+	vertical-align: middle;
+}
+
+#buttonForm {
+	margin-top : 70px;
+}
+
+h1{
+	vertical-align : middle;
+	text-align: center;
+}
+.contentPanel {
+	padding-top: 50px;
+	padding-left: 90px;
+	max-width: 90%;
+}
+
+.control-label col-sm-2 {
+	text-align: left;
+}
+
+.butt {
+	padding-left: 160px;
+}
+
+.infoP {
+	text-align: center;
+	Font-Weight: Bold;
+	font-size: large;
+	margin-bottom: 50px;
+}
+
+#op {
+	text-align: center;
+}
+
+.infoPd {
+	margin-bottom: 25px;
+}
+
+.btn {
+	display: block;
+	margin: auto;
+}
+
+.consAnn {
+	height : 400px;
+    background-image: url('../img/dons1.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+
+.modifP, .AddAnn {
+	text-align: center;
+	display: table-cell;
+	vertical-align: middle;
+	height: 12.5em;
+}
+
+.modifP {
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-image: url('../img/insc.jpg');
+	height: 200px;
+}
+
+.AddAnn {
+	background-position: center;
+	background-repeat: no-repeat;
+	background-image: url('../img/dons5.jpg');
+	height: 200px;
+}
+
+p{
+	font-size: 17px;
+	display: inherit;
+}
+h3 {
+	font-size: 25px;
+	text-align: center;
+	text-shadow: 0.1em 0.1em 0.20em #000;
+	color: white;
+	opacity: 1;
+	display: inherit;
+	margin-top: 20%;
+}
+
+.containCons {
+	font-size: 25px;
+	text-shadow: 0.1em 0.1em 0.20em #333;
+	color: white;
+	opacity: 1;
+	margin-top: 200px;
+	text-align: center;
+}
+
+.containVis {
+	
+	margin-top: 200px;	
+}
+
+h2 {
+	font-size: 25px;
+	text-align: center;
+	color: black;
+}
+.consAnn:before, .modifP:before, .AddAnn:before {
+	content: "";
+	opacity: 0;
+	display: block;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	background-color: white;
+	-moz-transition: all .3s linear;
+	-webkit-transition: all .3s linear;
+	-ms-transition: all .3s linear;
+	-o-transition: all .3s linear;
+	transition: all .3s linear;
+	opacity: 0;
+}
+
+.consAnn:hover:before, .modifP:hover:before, .AddAnn:hover:before {
+	opacity: 0.5;
+	background: rgba(38, 44, 38, 0.5);
+}
+.consAnn:hover,.modifP:hover{
+	background-size: 200% 150%;
+	text-color:"black";
+}
+
+.AddAnn:hover {
+	background-size: 100% 130%;
+}

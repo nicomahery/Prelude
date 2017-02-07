@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8"/>
+	<title>Bienvenue</title>
+ 	<link rel="icon" th:href="@{../img/iconCarton.png}" />
+    <link rel="stylesheet" type="text/css" th:href="@{../css/bootstrap.min.css}"/>
+    <link type="text/css" rel="stylesheet" th:href="@{../css/jquery-jvectormap-2.0.3.css}" />
+    <link rel="stylesheet" type="text/css" th:href="@{../css/style1.css}" />
+    <link type="text/css" rel="stylesheet" th:href="@{../css/style.css}"/>
+    
+
+<link rel="javascript" type="text/javascript" th:href="@{../js/gl.js}" />
+</head>
+<body>
+<header>
+    <div class="container">
+        <div class="row">
+            <div id="menuband">
+                <div id="logo" class="col-lg-2">
+                    <img th:src="@{../img/iconCarton.png}" width="70" heigth="70" alt=""/>
+                </div>
+                <div id="menu" class="col-lg-7">
+                    <nav class="navbar navbar-default">
+                        <div class="container">
+                            <div class="navbar-header">
+                                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false">
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                </button>
+                            </div>
+                            <div id="navbar" class="collapse navbar-collapse">
+                                <ul class="nav navbar-nav">
+                                    <li><a th:href="@{/}" href="index.html">Accueil</a></li>
+                                    <li><a th:href="@{/advertisement/getAll}">Voir nos annonces</a></li>
+                                    <li><a th:href="@{/about}">A Propos</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </nav>
+                </div>
+                <div id="connection" class="col-lg-3">
+                    <a th:if="${session.userId} == null" th:href="@{/user/subscribePage}"><img th:src="@{../img/iconConnexion.png}" width="25" height="25" alt=""/>
+                        Se connecter - S'inscrire</a>
+                    <a th:if="${session.userId} != null" th:href="@{/back}"><img th:src="@{../img/iconConnexion.png}" width="25" height="25" alt=""/>
+                        Mon compte</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</header>
+	<div class="container-fluid">
+        <div class="row">
+            <div id="headband">
+                <div id="contentHeadband" class=" col-lg-2 col-lg-offset-5">
+                	<h1>Bienvenue</h1>
+                    <h1 th:text="${session.userUsername}"></h1>
+                    <form method="" action="" class="text-center">
+                        <input type="text" class="form-control"/><br/>
+                        <input type="submit" id="submit" value="Rechercher"/>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+    	<div class="row">
+    		<h1>Ajouter une annonce</h1>
+    		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras ac pulvinar quam. Ut mattis elementum felis, eget facilisis nunc ultricies vitae. Integer porta justo quis nisl faucibus, eu fringilla magna egestas. Etiam congue condimentum leo, et varius erat vulputate ac. Proin sit amet justo malesuada, consectetur lectus id, pretium quam. Ut rhoncus, quam sed volutpat dapibus, ex risus eleifend elit, vitae maximus lacus neque a diam. In dapibus enim ut magna tempor, nec rhoncus odio rutrum. </p>
+    	</div>
+    </div>
+    <div id="buttonForm" class="container-fluid">
+    	<div class="row">
+    		<a th:href="@{/advertisement/userAdvertisementsPage}">
+				<div class="consAnn col-lg-6">
+					<div class="containCons">
+						<h3>Consulter les annonces</h3>
+					</div>
+					<div class="containVis"></div>
+				</div>
+			</a>
+			<a th:href="@{/advertisement/createAdvertisementPage}">
+				<div class="AddAnn col-lg-6">
+					<div class="containIniAdd">
+						<h3>Je donne !</h3>
+					</div>
+					<div class="containAnn"></div>
+				</div>
+			</a>
+			<a th:href="@{/user/modifyPage}">
+				<div class="modifP col-lg-6">
+					<div class="modP">
+						<h3>Modifier le profil</h3>
+					</div>
+					<div class="modiP"></div>
+				</div>
+			</a>
+    	</div>
+    </div>
+    
+    
+	
+		<footer>
+        <div class="container">
+            <div class="row">
+                <div id="about" class="col-lg-4">
+                    <h1>A Propos</h1>
+                    <a th:href="@{/about#whoAreUs}">Qui sommes-nous ?</a><br/>
+                    <a th:href="@{/about#contact}">Nous contacter</a><br/>
+                    <a th:href="@{/about#careers}">Nous rejoindre</a>
+                </div>
+                <div id="generalInformations" class="col-lg-4">
+                    <h1>Informations générales</h1>
+                    <a th:href="@{/information}">Conditions générales d'utilisation</a><br/>
+                    <a th:href="@{/information#privateLife}">Vie privée / cookies</a>
+                </div>
+                <div id="socialNetworks" class="col-lg-4">
+                    <h1>Réseaux sociaux</h1>
+                    <a href="#"><img th:src="@{../img/facebook.png}" width="50" height="50" alt=""/></a>
+                    <a href="#"><img th:src="@{../img/twitter.png}" width="50" height="50" alt=""/></a>
+                    <a href="#"><img th:src="@{../img/google.png}" width="50" height="50" alt=""/></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+	<script type="text/javascript"
+		src="http://code.jquery.com/jquery-1.12.3.min.js"></script>
+	<script type="text/javascript" th:src="@{../js/gl.js}"></script>
+
+<script type="text/javascript" th:src="@{../js/jquery-3.1.1.min.js}" ></script>
+    <script type="text/javascript" th:src="@{../js/bootstrap.min.js}" ></script>
+    <script type="text/javascript" th:src="@{../js/map.js}"></script>
+</body>
+
+</html>

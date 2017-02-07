@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8" />
+<title>ProjetGL</title>
+<link rel="stylesheet" type="text/css"
+	href="../static/css/bootstrap.min.css"
+	th:href="@{../css/bootstrap.min.css}" />
+</head>
+<body>
+
+
+	<div class="container">
+		<div class="panel panel-default">
+			<div class="panel panel-heading">Modifier Annonce</div>
+
+			<div class="panel-body">
+				<form th:action="@{modifyAdvertisement}" method="post">
+					<div class="form-group">
+						<label class="control-label">Titre de l'annonce</label> <input
+							class="form-control" type="text" name="title"
+							th:value="${advertisementModify.title}" />
+					</div>
+					<div class="form-group">
+						<label class="control-label">Description de l'annonce</label> <input
+							class="form-control" type="text" name="description"
+							th:value="${advertisementModify.description}" />
+					</div>
+
+					<div class="form-group row">
+						<select class="form-control" id="categories" name="categories">
+							<option values="">categorie</option>
+							<option th:each="category : ${categories}"
+								th:value="${category.id}" th:text="${category.name}" />
+						</select>
+					</div>
+					<div class="form-group">
+						<label class="control-label">Adresse</label> <input
+							class="form-control" type="text" name="street"
+							th:value="${advertisementModify.address.street}" />
+
+					</div>
+					<div class="form-group">
+						<label class="control-label">Ville</label> <input
+							class="form-control" type="text" name="city"
+							th:value="${advertisementModify.address.city}" />
+
+					</div>
+					<div class="form-group">
+						<label class="control-label">Departement</label> <input
+							class="form-control" type="text" name="country"
+							th:value="${advertisementModify.address.state}" />
+
+					</div>
+					<div class="form-group">
+						<label class="control-label">Code postal</label> <input
+							class="form-control" type="text" name="zip"
+							th:value="${advertisementModify.address.zip}" />
+
+					</div>
+					<div class="form-group">
+						<label class="control-label">Pays</label> <input
+							class="form-control" type="text" name="country"
+							th:value="${advertisementModify.address.country}" />
+
+					</div>
+
+					<input type="hidden" name="advertisementId"
+						th:value="${advertisementModify.id}" />
+					<button type="submit" class="btn btn-primary">Modifier
+						Annonce</button>
+				</form>
+			</div>
+
+		</div>
+	</div>
+
+	<div>
+		<form method="POST" enctype="multipart/form-data" action="/">
+			<table>
+				<tr>
+					<td>File to upload:</td>
+					<td><input type="file" name="file" /></td>
+				</tr>
+				<tr>
+					<td></td>
+					<td><input type="submit" value="Upload" /></td>
+				</tr>
+			</table>
+		</form>
+	</div>
+
+	<div>
+		<ul>
+			<li th:each="file : ${files}"><a th:href="${file}"
+				th:text="${file}" /></li>
+		</ul>
+	</div>
+</body>
+</html>
