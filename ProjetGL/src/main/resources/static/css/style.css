@@ -102,7 +102,7 @@ header {
 }
 
 #listcategories a:hover {
-    color : whitesmoke;
+    color: #696969;
 }
 
 #mapDiv {
@@ -125,7 +125,7 @@ header {
 
 #mapDiv a:hover {
     text-decoration: none;
-    color: whitesmoke;
+    color: #696969;
 }
 
 #information {
@@ -182,8 +182,15 @@ footer a:hover {
     color : black;
 }
 
+#listProducts h3 {
+    font-size: 18px;
+}
+
+#listProducts h3:hover {
+	opacity: 0.5;
+}
+
 #listProducts a:hover {
-    opacity: 0.5;
     text-decoration: none;
 }
 
