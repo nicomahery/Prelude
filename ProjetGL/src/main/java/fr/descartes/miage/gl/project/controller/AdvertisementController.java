@@ -116,9 +116,13 @@ public class AdvertisementController {
 	@RequestMapping(value="/userAdvertisementsPage", method=RequestMethod.GET)
 	public String userAdvertisements(Model model, HttpSession session){
 		User user = userRepository.findOne((Long)session.getAttribute("userId"));
-		model.addAttribute("advertisements", advertisementRepository.findByOwner_idAndSold((Long)session.getAttribute("userId"), false));
+		List<Advertisement> list = advertisementRepository.findByOwner(user);
+		for (Advertisement advertisement : list) {
+			System.out.println(advertisement);
+		}
+		model.addAttribute("advs", advertisementRepository.findByOwner(user));
 		//model.addAttribute("advertisement", new Advertisement());
-		return "userAdvertisements";
+		return "view/userAdvert";
 	}
 	
 	
@@ -177,6 +181,7 @@ public class AdvertisementController {
 	@RequestMapping(value="/researchCat", method=RequestMethod.POST)
 	public String researchCat(Model model, @RequestParam("researchCat") String nameCat){
 		List<Advertisement> advCat = advertisementRepository.findAll();
+		
 		HashMap<Long,Advertisement> advFinal= new HashMap <Long, Advertisement>();
 		
 		List <Long>listImg= new ArrayList <Long>();
