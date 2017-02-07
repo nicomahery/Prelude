@@ -215,6 +215,10 @@ footer a:hover {
     margin-top: 20px;
 }
 
+#infoProduct img {
+    margin-top: 20px;
+}
+
 #descriptionDiv {
     margin-top: 50px;
 }
@@ -314,7 +318,6 @@ form h1 {
     padding: 10px 20px;
     border: 2px solid black;
     margin-top: 20px;
-    margin-left: 45%;
 }
 
 .btnStyle:hover {

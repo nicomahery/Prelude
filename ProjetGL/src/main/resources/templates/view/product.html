@@ -67,11 +67,33 @@
                     th:src="@{'photoSearch/' +${photo}}" width="" height="" alt=""/> <!-- Les images du produits -->
                 </div>
                 <div class="col-lg-6">
-                    <h1 th:text="${adv.title}">Canapé</h1>
-                    <img th:src="@{../img/date.jpg}" width="25" height="25" alt=""/><p th:text="${'Mise en ligne le : ' + adv.date}">Mise en ligne le : 15 décembre 2016</p>
-                    <img th:src="@{../img/iconConnexion.png}" width="25" height="25" alt=""/><p th:text="${'Par : ' + advOwn.username}">Par : Caroline Pégart</p>
-                    <img th:src="@{../img/phone.png}" width="25" height="25" alt=""/><p th:text="${'Téléphone : ' + advOwn.phoneNumber}">Téléphone : 06 29 47 43 24</p>
-                    <img th:src="@{../img/place.png}" width="25" height="25" alt=""/><p th:text="${'Adresse : ' + advAdd.street + ', ' + advAdd.zip + ', ' + advAdd.city}">Adresse : 4 rue Edgar Degas, 78360, Montesson</p>
+                 <h1 th:text="${adv.title}"></h1>
+                	<div class="row">
+                		<div class="col-lg-1">
+                			<img th:src="@{../img/date.jpg}" width="25" height="25" alt=""  />
+                		</div>
+                		<div class="col-lg-11">
+                			<p th:text="${'Mise en ligne le : ' + adv.date}"></p>
+                		</div>
+                		<div class="col-lg-1">
+                			<img th:src="@{../img/iconConnexion.png}" width="25" height="25" alt=""/>
+                		</div>
+                		<div class="col-lg-11">
+                			<p th:text="${'Par : ' + advOwn.username}"></p>
+                		</div>
+                		<div class="col-lg-1">
+                			<img th:src="@{../img/phone.png}" width="25" height="25" alt=""/>
+                		</div>
+                		<div class="col-lg-11">
+                			<p th:text="${'Téléphone : ' + advOwn.phoneNumber}"></p>
+                		</div>
+                		<div class="col-lg-1">
+                			<img th:src="@{../img/place.png}" width="25" height="25" alt=""/>
+                		</div>
+                		<div class="col-lg-11">
+                			<p th:text="${'Adresse : ' + advAdd.street + ', ' + advAdd.zip + ', ' + advAdd.city}"></p>
+                		</div>
+                	</div>
                 </div>
                 
             </div>

@@ -71,7 +71,9 @@
 						<input type="text" name="username" class="form-control"/>
 						<label>Mot de passe</label>
 						<input type="password" name="password" class="form-control"/>
-						<input class="btnStyle" type="submit"/>
+						<div class="text-center">
+							<input class="btnStyle" type="submit"/>
+						</div>
 					</div>
 				</form>
 			</div>
@@ -121,7 +123,9 @@
 						<input type="text" id="country" name="country" class="form-control"
 							th:value="${address.country}"/> 
 						<span th:errors="${address.country}"></span> 
-						<input type="submit"></input>
+						<div class="text-center">
+							<input class="btnStyle" type="submit"></input>
+						</div>
 					</div>
 				</form>
 			</div>
