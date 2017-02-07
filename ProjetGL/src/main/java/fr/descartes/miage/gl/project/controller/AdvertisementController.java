@@ -74,10 +74,7 @@ public class AdvertisementController {
 		
 		
 		//si ad==ad user 
-		if(		address.getCity().equals(userRepository.findOne((Long)session.getAttribute("userId")).getAddress().getCity()) 
-			&&  address.getCountry().equals(userRepository.findOne((Long)session.getAttribute("userId")).getAddress().getCountry())
-			&&  address.getStreet().equals(userRepository.findOne((Long)session.getAttribute("userId")).getAddress().getStreet())
-			&&  address.getZip().equals(userRepository.findOne((Long)session.getAttribute("userId")).getAddress().getZip())) 
+		if(this.isAlreadySaved(address, session)) 
 			advertisement.setAddress(userRepository.findOne((Long)session.getAttribute("userId")).getAddress());
 		else{
 				addressRepository.save(address);	
@@ -85,9 +82,6 @@ public class AdvertisementController {
 		}
 		advertisementRepository.save(advertisement);
 
-		//if(file.isEmpty())
-		
-		//else
 		for (MultipartFile file : files) {
 			try {
 				Photo photo = new Photo();
@@ -121,7 +115,6 @@ public class AdvertisementController {
 			System.out.println(advertisement);
 		}
 		model.addAttribute("advs", advertisementRepository.findByOwner(user));
-		//model.addAttribute("advertisement", new Advertisement());
 		return "view/userAdvert";
 	}
 	
@@ -134,7 +127,6 @@ public class AdvertisementController {
 		model.addAttribute("address", a.getAddress() );
 		List<Category> listCategory = categoryRepository.findAll();
 		model.addAttribute("categories", listCategory);
-		//model.addAllAttributes("address", addressRepository.)
 		return "view/modifyAdvertissement";
 	}
 	
@@ -149,16 +141,17 @@ public class AdvertisementController {
 	}
 	
 	@RequestMapping(value="/deleteAdvertisement", method=RequestMethod.GET)
-	public String deleteAdvertisement(Model model, @RequestParam("advertisementId") Long id){
-		advertisementRepository.delete(id);
-		return "view/product";
+	public String deleteAdvertisement(Model model, @RequestParam("advertisementId") Long id, HttpSession session){
+		if (advertisementRepository.getOne(id).getOwner().getId() == (Long)session.getAttribute("userId"))
+			advertisementRepository.delete(id);
+		return this.getAll(model);
 	}
 	
 	@RequestMapping(value="/research", method=RequestMethod.POST)
 	public String research(Model model, @RequestParam("researchTxt") String titleReseach){
 		List<Advertisement> adv = advertisementRepository.findAll();
 		HashMap<Long,Advertisement> advFinal= new HashMap <Long, Advertisement>();
-		
+		model = this.addAllCategories(model);
 		List <Long>listImg= new ArrayList <Long>();
 		
 		for(Advertisement a : adv){
@@ -174,7 +167,7 @@ public class AdvertisementController {
 	public String getAll(Model model){
 		List<Advertisement> adv = advertisementRepository.findAll();
 		HashMap<Long,Advertisement> advFinal= new HashMap <Long, Advertisement>();
-		
+		model = this.addAllCategories(model);
 		List <Long>listImg= new ArrayList <Long>();
 		
 		for(Advertisement a : adv){
@@ -187,7 +180,7 @@ public class AdvertisementController {
 	@RequestMapping(value="/researchCat", method=RequestMethod.GET)
 	public String researchCat(Model model, @RequestParam("researchCat") String nameCat){
 		List<Advertisement> advCat = advertisementRepository.findByCategory(categoryRepository.findByName(nameCat));
-		
+		model = this.addAllCategories(model);
 		HashMap<Long,Advertisement> advFinal= new HashMap <Long, Advertisement>();
 		
 		List <Long>listImg= new ArrayList <Long>();
@@ -250,7 +243,15 @@ public class AdvertisementController {
 		return "advertisementSuccess";
 	}
 	
+	public Model addAllCategories(Model model){
+		model.addAttribute("categories", categoryRepository.findAll());
+		return model;
+	}
 
-
-	
+	public boolean isAlreadySaved(Address address, HttpSession session){
+		return (		address.getCity().equals(userRepository.findOne((Long)session.getAttribute("userId")).getAddress().getCity()) 
+				&&  address.getCountry().equals(userRepository.findOne((Long)session.getAttribute("userId")).getAddress().getCountry())
+				&&  address.getStreet().equals(userRepository.findOne((Long)session.getAttribute("userId")).getAddress().getStreet())
+				&&  address.getZip().equals(userRepository.findOne((Long)session.getAttribute("userId")).getAddress().getZip()));
+	}
 }

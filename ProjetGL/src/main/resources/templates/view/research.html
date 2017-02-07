@@ -73,7 +73,7 @@
                         <div id="produit1" class="col-lg-4 text-center">
                             <img th:src="@{'photoSearch/' +${adv.key}}" width="200" height="150" alt=""></img>
                             <h3 th:text="${#strings.abbreviate(adv.value.title,30)}"> </h3>
-                            <p th:text="${'Mis en ligne le : ' + adv.value.date}"> </p>
+                            <p th:text="${'Mis en ligne le : ' + #dates.format(new java.util.Date(adv.value.date), 'dd-MMM-yyyy')}"> </p>
                         </div>
                     </a>
                 </div>
@@ -81,18 +81,7 @@
         </div>
         <div class="col-lg-2" id="categoriesList">
             <h1 class="text-center">Catégories</h1> <!-- Affichage de la liste des catégories et quand on clique dessus ça fait une recherche par catégorie -->
-            <a th:href="@{/advertisement/researchCat?researchCat=plante}"><p>Plantes</p></a>
-             <a th:href="@{/advertisement/researchCat?researchCat=meuble}"><p>Meubles</p></a>
-            <a href="#"><p>Table</p></a>
-            <a href="#"><p>Chaise</p></a>
-            <a href="#"><p>Art</p></a>
-            <a href="#"><p>Textile</p></a>
-            <a href="#"><p>Lampe</p></a>
-            <a href="#"><p>Lit</p></a>
-            <a href="#"><p>Vaisselle</p></a>
-            <a href="#"><p>Ustensile cuisine</p></a>
-            <a href="#"><p>Meuble de jardin</p></a>
-            <a href="#"><p>Technologie</p></a>
+            <a th:each="cat : ${categories}" th:href="@{'/advertisement/researchCat?researchCat=' + ${cat.name}}"><p th:text="${cat.name}"></p></a>
         </div>
     </div>
 </div>
