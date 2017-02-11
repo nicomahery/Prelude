@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 
 import fr.descartes.miage.gl.project.entities.Address;
 import fr.descartes.miage.gl.project.entities.Advertisement;
@@ -14,6 +15,6 @@ public interface AdvertisementRepository extends JpaRepository<Advertisement, Lo
 	public List<Advertisement> findByOwner(User ownerId);
 	public List<Advertisement> findByCategory(Category catId);
 	
-	@Query("select u from Advertisement u inner join u.address ar where ar.state = :adId")
-	public List<Advertisement> findByAddress(Address adId);
+	@Query("Select a from Advertisement a,Address ad where a.address.state= :id")
+	public List<Advertisement> findByAddress_state(@Param("id") String adId);
 }
