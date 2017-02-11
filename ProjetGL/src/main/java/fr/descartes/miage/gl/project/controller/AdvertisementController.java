@@ -193,15 +193,18 @@ public class AdvertisementController {
 	
 	@RequestMapping(value="/researchState", method=RequestMethod.GET)
 	public String researchState(Model model, @RequestParam("researchState") String nameState){
-		
-		List<Advertisement> advList = addressRepository.findByState(nameState);
-		
+		List<Address> advCat = addressRepository.findByState(nameState);
+		List<Advertisement> advst;
 		HashMap<Long,Advertisement> advFinal= new HashMap <Long, Advertisement>();
-		
-		List <Long>listImg= new ArrayList <Long>();
-		
-		for(Advertisement a : advList){
-			advFinal.put(this.getOneImage(a), a);
+		model = this.addAllCategories(model);
+		if (advCat.isEmpty()){
+			advst = null;
+		}
+		else {
+			advst = advertisementRepository.findByAddress_state(addressRepository.findOne(advCat.get(0).getId()).getState());	
+			for(Advertisement a : advst){
+				advFinal.put(this.getOneImage(a), a);
+			}
 		}
 		model.addAttribute("advlist", advFinal);
 		return "view/research";
