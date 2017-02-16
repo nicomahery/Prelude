@@ -69,19 +69,23 @@
             <div class="row">
                 <div class="col-lg-12" id="listProducts">
                     <h1 class="text-center">Gerer mes annonces</h1>
-                    <table>
+                    <table class="table">
                     <tr>
-                    <th>Image</th>
-                    <th>Titre</th>
-                    <th>Description</th>
+                    	<th>Ident</th>
+	                    <th>Image</th>
+	                    <th>Titre</th>
+	                    <th>Description</th>
+	                    <th></th>
+	                    <th></th>
                     </tr>
                     <tr th:each="adv : ${advs}">
                     <a th:href="@{'/advertisement/getAdvertisement?id='+${adv.id}}">
 						<td><h3 th:text="${adv.id}"> </h3></td>
-                        <td><h3 th:text="${adv.title}"> </h3></td>
-                        <td><h3 th:text="${adv.description}"> </h3></td>
-                        <td><a th:href="@{'/advertisement/modifyAdvertisementPage?advertisementId='+${adv.id}}">Modifier</a></td>
-                        <td><a th:href="@{'/advertisement/deleteAdvertisement?advertisementId='+${adv.id}}">Supprimer</a></td>
+						<td><img th:src="@{'photoSearch/' +${adv.id}}" width="75" height="50" alt=""></img></td>
+                        <td><p th:text="${adv.title}"> </p></td>
+                        <td><p th:text="${adv.description}"> </p></td>
+                        <td><a class="btnStyle" th:href="@{'/advertisement/modifyAdvertisementPage?advertisementId='+${adv.id}}">Modifier</a></td>
+                        <td><a class="btnStyle" th:href="@{'/advertisement/deleteAdvertisement?advertisementId='+${adv.id}}">Supprimer</a></td>
                     </a>
                     </tr>
                     </table>
