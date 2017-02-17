@@ -101,7 +101,7 @@ public class UserController {
 		userRepository.save(newUser);
 		addressRepository.save(newAddress);
 		
-		return "userSuccess";
+		return "view/userSuccessModify";
 	};
 	
 }
