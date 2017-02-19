@@ -39,11 +39,12 @@
 							</div>
 						</nav>
 					</div>
-					<div id="connection" class="col-lg-3">
-						<a th:href="@{/user/subscribePage}"><img
-							th:src="@{../img/iconConnexion.png}" width="25" height="25"
-							alt="" /> Se connecter - S'inscrire</a>
-					</div>
+					 <div id="connection" class="col-lg-3">
+	                    <a th:if="${session.userId} == null" th:href="@{/user/subscribePage}"><img th:src="@{../img/iconConnexion.png}" width="25" height="25" alt=""/>
+	                        Se connecter - S'inscrire</a>
+	                    <a th:if="${session.userId} != null" th:href="@{/back}"><img th:src="@{../img/iconConnexion.png}" width="25" height="25" alt=""/>
+	                        Mon compte</a>
+                	</div>
 				</div>
 			</div>
 		</div>
