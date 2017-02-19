@@ -7,20 +7,18 @@
     <link rel="stylesheet" type="text/css" th:href="@{../css/bootstrap.min.css}"/>
     <link type="text/css" rel="stylesheet" th:href="@{../css/jquery-jvectormap-2.0.3.css}" />
     <link type="text/css" rel="stylesheet" th:href="@{../css/style.css}"/>
-    <script type="text/javascript" th:src="@{../js/jquery-3.1.1.min.js}" ></script>
-    <script type="text/javascript" th:src="@{../js/bootstrap.min.js}" ></script>
-    <script type="text/javascript" th:src="@{../js/jquery-jvectormap-2.0.3.min.js}" ></script>
-    <script type="text/javascript" th:src="@{../js/map.js}"></script>
+    <link type="text/css" rel="stylesheet" th:href="@{../css/responsive.css}"/>
+    
 </head>
 <body>
 <header>
     <div class="container">
         <div class="row">
             <div id="menuband">
-                <div id="logo" class="col-lg-2">
+                <div id="logo" class="col-lg-2 col-sm-2">
                     <img th:src="@{../img/iconCarton.png}" width="70" heigth="70" alt=""/>
                 </div>
-                <div id="menu" class="col-lg-7">
+                <div id="menu" class="col-lg-7 col-sm-6">
                     <nav class="navbar navbar-default">
                         <div class="container">
                             <div class="navbar-header">
@@ -40,7 +38,7 @@
                         </div>
                     </nav>
                 </div>
-                <div id="connection" class="col-lg-3">
+                <div id="connection" class="col-lg-3 col-sm-4">
                     <a th:if="${session.userId} == null" th:href="@{/user/subscribePage}"><img th:src="@{../img/iconConnexion.png}" width="25" height="25" alt=""/>
                         Se connecter - S'inscrire</a>
                     <a th:if="${session.userId} != null" th:href="@{/back}"><img th:src="@{../img/iconConnexion.png}" width="25" height="25" alt=""/>
@@ -50,11 +48,13 @@
         </div>
     </div>
 
+
+
 </header>
     <div class="container-fluid">
         <div class="row">
             <div id="headband">
-                <div id="contentHeadband" class=" col-lg-2 col-lg-offset-5">
+                <div id="contentHeadband" class=" col-lg-2 col-lg-offset-5 col-sm-4 col-sm-offset-4">
                     <h1>Bienvenue</h1>
                      <form th:action="@{/advertisement/research}" method="POST"  class="text-center" >
                         <input type="text" class="form-control" name="researchTxt"/><br/>
@@ -67,17 +67,17 @@
     <div class="container">
         <div class="row">
             <div id="explication">
-                <div id="explication1" class="col-lg-4">
+                <div id="explication1" class="col-lg-4  col-sm-4 col-xs-12">
                     <img th:src="@{../img/picto1.png}" width="100" height="100" alt=""/>
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                         Morbi sed nisi id risus viverra cursus. Mauris bibendum arcu suscipit, venenatis arcu tincidunt, molestie est. </p>
                 </div>
-                <div id="explication2" class="col-lg-4">
+                <div id="explication2" class="col-lg-4  col-sm-4 col-xs-12">
                     <img  th:src="@{../img/picto2.png}" width="100" height="100" alt=""/>
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi sed nisi id risus viverra cursus.
                         Mauris bibendum arcu suscipit, venenatis arcu tincidunt, molestie est. </p>
                 </div>
-                <div id="explication3" class="col-lg-4">
+                <div id="explication3" class="col-lg-4  col-sm-4 col-xs-12">
                     <img  th:src="@{../img/picto4.png}" width="100" height="100" alt=""/>
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi sed nisi id risus viverra cursus.
                         Mauris bibendum arcu suscipit, venenatis arcu tincidunt, molestie est. </p>
@@ -86,25 +86,25 @@
             <div id="listcategories" class="text-center">
                 <h1>Trouver par catégories</h1>
                 <a href="#">
-                    <div id="category1" class="col-lg-3 text-center">
+                    <div id="category1" class="col-lg-3 col-sm-3 text-center">
                         <img th:src="@{../img/categ1.jpg}" width="200" height="150" alt=""/>
                         <p>MEUBLES</p>
                     </div>
                 </a>
                 <a href="#">
-                    <div id="category2" class="col-lg-3 text-center">
+                    <div id="category2" class="col-lg-3 col-sm-3 text-center">
                         <img th:src="@{../img/categ2.jpg}" width="200" height="150" alt=""/>
                         <p>PLANTES</p>
                     </div>
                 </a>
                 <a href="#">
-                    <div id="category3" class="col-lg-3 text-center">
+                    <div id="category3" class="col-lg-3 col-sm-3 text-center">
                         <img th:src="@{../img/categ3.jpg}" width="200" height="150" alt=""/>
                         <p>ARTS</p>
                     </div>
                 </a>
                 <a href="#">
-                    <div id="category4" class="col-lg-3 text-center">
+                    <div id="category4" class="col-lg-3 col-sm-3 text-center">
                         <img th:src="@{../img/categ4.jpg}" width="200" height="150" alt=""/>
                         <p>TABLES</p>
                     </div>
@@ -112,7 +112,7 @@
             </div>
             <div id="mapDiv">
                 <h1 class="text-center">Trouver par régions</h1>
-                <div id="map" class="col-lg-6" style="width: 600px; height: 400px;">
+                <div id="map" class="col-lg-6 col-sm-6" style="width: 600px; height: 400px;">
 
                 </div>
                <div class="col-lg-4">
@@ -171,6 +171,10 @@
         </div>
     </footer>
 
+	<script type="text/javascript" th:src="@{../js/jquery-1.12.3.min.js}" ></script>
+    <script type="text/javascript" th:src="@{../js/bootstrap.min.js}" ></script>
+    <script type="text/javascript" th:src="@{../js/jquery-jvectormap-2.0.3.min.js}" ></script>
+    <script type="text/javascript" th:src="@{../js/map.js}"></script>
     <script type="text/javascript">
         $(document).ready(function(){
 
