@@ -71,7 +71,7 @@
                 <div class="col-lg-12" id="listProducts">
                     <h1 class="text-center">Produits</h1>
                     <a th:each="adv : ${advlist}" th:href="@{'/advertisement/getAdvertisement?id='+${adv.value.id}}">
-                        <div id="produit1" class="col-lg-4 col-sm-4 text-center">
+                        <div id="produit1" class="col-lg-4 col-sm-4 text-center prod">
                             <img th:src="@{'photoSearch/' +${adv.key}}" width="200" height="150" alt=""></img>
                             <h3 th:text="${#strings.abbreviate(adv.value.title,30)}"> </h3>
                             <p th:text="${'Mis en ligne le : ' + #dates.format(new java.util.Date(adv.value.date), 'dd-MMM-yyyy')}"> </p>
