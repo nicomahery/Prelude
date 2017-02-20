@@ -66,7 +66,7 @@ public class UserController {
 				}
 			}
 		}
-		return "eee";
+		return "redirect:subscribePage";
 	}
 
 	@RequestMapping(value="/disconnect", method=RequestMethod.GET)

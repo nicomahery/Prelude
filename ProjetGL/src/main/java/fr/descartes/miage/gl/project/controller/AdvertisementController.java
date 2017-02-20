@@ -95,14 +95,6 @@ public class AdvertisementController {
 		return "view/advertissementSuccessCreate";
 	}
 	
-	@RequestMapping(value="/photoSearch/{imageId}", method=RequestMethod.GET)
-	@ResponseBody
-	public ResponseEntity<byte[]> getImage(@PathVariable("imageId") Long imageId){
-		byte[] imageContent = photoRepository.findOne(imageId).getData();
-		final HttpHeaders headers = new HttpHeaders();
-		headers.setContentType(MediaType.IMAGE_PNG);
-		return new ResponseEntity<byte[]>(imageContent, headers, HttpStatus.OK);
-	}
 	
 	@RequestMapping(value="/userAdvertisementsPage", method=RequestMethod.GET)
 	public String userAdvertisements(Model model, HttpSession session){
@@ -228,6 +220,7 @@ public class AdvertisementController {
 	
 	@RequestMapping(value="/modifyAdvertisement", method=RequestMethod.GET)
 	public String modifyAdvetisement(Model model,@RequestParam("advertisementId") String advertisementId, @Valid Address address, @RequestParam("categories") String category, @RequestParam("title") String title ,@RequestParam("description") String description, HttpSession session){
+		System.out.println("modify");
 		Advertisement advertisement = advertisementRepository.findOne(Long.valueOf(advertisementId));
 		advertisement.setTitle(title);
 		advertisement.setDescription(description);
@@ -257,6 +250,15 @@ public class AdvertisementController {
 		model.addAttribute("user",userRepository.findOne((Long)session.getAttribute("userId")));
 		//model.addAllAttributes("address", addressRepository.)
 		return "advertisementSuccess";
+	}
+	
+	@RequestMapping(value="/photoSearch/{imageId}", method=RequestMethod.GET)
+	@ResponseBody
+	public ResponseEntity<byte[]> getImage(@PathVariable("imageId") Long imageId){
+		byte[] imageContent = photoRepository.findOne(imageId).getData();
+		final HttpHeaders headers = new HttpHeaders();
+		headers.setContentType(MediaType.IMAGE_PNG);
+		return new ResponseEntity<byte[]>(imageContent, headers, HttpStatus.OK);
 	}
 	
 	public Model addAllCategories(Model model){
