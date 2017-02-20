@@ -131,8 +131,13 @@ public class AdvertisementController {
 	
 	@RequestMapping(value="/deleteAdvertisement", method=RequestMethod.GET)
 	public String deleteAdvertisement(Model model, @RequestParam("advertisementId") Long id, HttpSession session){
-		if (advertisementRepository.getOne(id).getOwner().getId() == (Long)session.getAttribute("userId"))
+		if (advertisementRepository.getOne(id).getOwner().getId() == (Long)session.getAttribute("userId")){
+			for(Photo p: photoRepository.findAll()){
+				if (p.getAdvertisement().getId() == id)
+					photoRepository.delete(p);
+			}
 			advertisementRepository.delete(id);
+		}
 		return this.getAll(model);
 	}
 	
