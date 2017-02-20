@@ -325,9 +325,16 @@ form h1 {
     padding: 10px 20px;
     border: 2px solid black;
     margin-top: 20px;
+    margin-right: 5px;
 }
 
 .btnStyle:hover {
     text-decoration: none;
     background-color: whitesmoke;
 }
+
+.prod {
+	height : 280px;
+	
+}
+

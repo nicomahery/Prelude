@@ -92,7 +92,7 @@ public class AdvertisementController {
 		model.addAttribute("advertisement", advertisement);
 		model.addAttribute("user",userRepository.findOne((Long)session.getAttribute("userId")));
 		
-		return "advertisementSuccess";
+		return "view/advertissementSuccessCreate";
 	}
 	
 	@RequestMapping(value="/photoSearch/{imageId}", method=RequestMethod.GET)
@@ -246,7 +246,7 @@ public class AdvertisementController {
 		model.addAttribute("advertisement", advertisement);
 		model.addAttribute("user",userRepository.findOne((Long)session.getAttribute("userId")));
 		
-		return "advertisementSuccess";
+		return "view/advertissementSuccessModify";
 	}
 	
 	@RequestMapping(value="/advertisementPage", method=RequestMethod.GET)
