@@ -225,7 +225,6 @@ public class AdvertisementController {
 	
 	@RequestMapping(value="/modifyAdvertisement", method=RequestMethod.GET)
 	public String modifyAdvetisement(Model model,@RequestParam("advertisementId") String advertisementId, @Valid Address address, @RequestParam("categories") String category, @RequestParam("title") String title ,@RequestParam("description") String description, HttpSession session){
-		System.out.println("modify");
 		Advertisement advertisement = advertisementRepository.findOne(Long.valueOf(advertisementId));
 		advertisement.setTitle(title);
 		advertisement.setDescription(description);

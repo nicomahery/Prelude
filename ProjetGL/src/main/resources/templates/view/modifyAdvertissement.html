@@ -68,7 +68,7 @@
 					<h1>Informations sur le produit</h1>
 					<div class="formInfos" id="formProduct">
 						<div class="form-group">
-						<input type="hidden" class="form-control" name="idAdvertisement"
+						<input type="hidden" class="form-control" name="advertisementId"
 								th:value="${advertisementModify.id}" />
 							<label class="control-label">Titre</label>
 							<input type="text" class="form-control" name="title"
@@ -96,7 +96,7 @@
 					<div class="formInfos" id="formAddress">
 						<div class="form-group">
 							<label class="control-label">Adresse</label>
-							<input type="text" class="form-control" name="str"
+							<input type="text" class="form-control" name="street"
 										th:value="${advertisementModify.address.street}" id="addresse" />
 						</div>
 						<div class="form-group">
