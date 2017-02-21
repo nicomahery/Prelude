@@ -8,13 +8,21 @@ Nous avons l&#39;exemple de lors d&#39;un déménagement, nous n&#39;avons pas f
 
 ### Les fonctionnalités disponible :
 **Fonction** : Inscription
+
 **Fonction** : Connexion
+
 **Fonction** : Poster une annonce
+
 **Fonction** : Consulter les annonces publiées
+
+**Fonction** : Rechercher une annonce
+
 **Fonction** : Modifier une annonce
+
 **Fonction** : Supprimer une annonce
+
 **Fonction** : Accéder aux informations de l&#39;annonceur
-**Fonction** : Recherche
+
 **Fonction** : Modifier le profil d&#39;un utilisateur
 
 
