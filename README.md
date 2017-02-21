@@ -14,8 +14,8 @@ Nous avons l&#39;exemple de lors d&#39;un déménagement, nous n&#39;avons pas f
     - Rechercher une annonce
     - Modifier une annonce
     - Supprimer une annonce
-    - Accéder aux informations de l&#39;annonceur
-    - Modifier le profil d&#39;;un utilisateur
+    - Accéder aux informations de l'annonceur
+    - Modifier le profil d'un utilisateur
 
 
 
