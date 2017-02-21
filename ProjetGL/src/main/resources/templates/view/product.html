@@ -124,7 +124,7 @@
                         <h3>Se rendre à l'adresse </h3>
                         <label>Entrez votre adresse de départ :</label>
                         <input type="text" class="form-control" name="startAddress" id="startAddress"/><br/>
-                        <input type="hidden" name="finalAddress" value="4 rue Edgar Degas, 78360, Montesson" id="finalAddress"/>
+                        <input type="hidden" name="finalAddress" th:value="${'Adresse : ' + advAdd.street + ', ' + advAdd.zip + ', ' + advAdd.city}" id="finalAddress"/>
                         <input class="text-center" id="addressSubmit" type="submit" value="Voir l'itinéraire"/>
                     </div>
                 </div>
