@@ -114,12 +114,21 @@
 								class="form-control" type="text" name="zip"
 								th:value="${address.zip}" /> <span th:errors="${address.zip}"></span>
 						</div>
+						
+						<div class="form-group">
+							<label class="control-label">Région</label> <input
+								class="form-control" type="text" name="state"
+								th:value="${address.state}" /> <span
+								th:errors="${address.state}"></span>
+						</div>
+						
 						<div class="form-group">
 							<label class="control-label">Pays</label> <input
 								class="form-control" type="text" name="country"
 								th:value="${address.country}" /> <span
 								th:errors="${address.country}"></span>
 						</div>
+						
 					</div>
 					<div class="text-center">
 						<button type="submit" class="btnStyle">Creer Annonce</button>
