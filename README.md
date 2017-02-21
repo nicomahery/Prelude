@@ -7,30 +7,22 @@ Nous avons l&#39;exemple de lors d&#39;un déménagement, nous n&#39;avons pas f
 
 
 ### Les fonctionnalités disponible :
-**Fonction** : Inscription
-
-**Fonction** : Connexion
-
-**Fonction** : Poster une annonce
-
-**Fonction** : Consulter les annonces publiées
-
-**Fonction** : Rechercher une annonce
-
-**Fonction** : Modifier une annonce
-
-**Fonction** : Supprimer une annonce
-
-**Fonction** : Accéder aux informations de l&#39;annonceur
-
-**Fonction** : Modifier le profil d&#39;un utilisateur
+    - Inscription
+    - Connexion
+    - Poster une annonce
+    - Consulter les annonces publiées
+    - Rechercher une annonce
+    - Modifier une annonce
+    - Supprimer une annonce
+    - Accéder aux informations de l&#39;annonceur
+    - Modifier le profil d&#39;un utilisateur
 
 
 
 ### Team
   - Mahery RAZAFINIAINA as [@nicomahery](https://github.com/nicomahery).
-  - Caroline PEGART as 
-  - Naomie FOURNIE as 
+  - Caroline PEGART as [@caropeg29](https://github.com/caropeg29).
+  - Naomie FOURNIE as [@naomiefournie](https://github.com/naomiefournie).
   - Wei HE as [@WeiH713](https://github.com/WeiH713).
   - Matthieu TENDEIRO as [@Hopykito](https://github.com/Hopykito).
 
